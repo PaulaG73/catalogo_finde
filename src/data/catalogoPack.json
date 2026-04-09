@@ -1,55 +1,63 @@
 [
     {
       "id": "alchemysta",
-      "title": "N°1 Alchemysta",
-      "valle": "Valles de Casablanca y Cachapoal",
-      "image": "/img/Alchemysta.jpg",
-      "price": "$45.000",
+      "title": "N°1 Blancos/Alchemysta Wines",
+      "valle": "Valle de Casablanca",
+      "image": "/img/Blancos.jpg",
+      "price": "$15.000",
       "bloques": [
-        { "tipoCopa": "blanco", "cantidadBotellas": 3, "nombreVino": "Angelina White Angel, Sauvignon Blanc" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Parróne, Cabernet Sauvignon/Syrah" }
+        { "tipoCopa": "blanco", "cantidadBotellas": 1, "nombreVino": "Angelina White Angel, Sauvignon Blanc" },
+        { "tipoCopa": "blanco", "cantidadBotellas": 1, "nombreVino": "Angelina White Angel, Chardonnay" }
       
       ]
     },
     {
-      "id": "mujer-andina-angelina",
-      "title": "N°2 MujerAndina/Angelina",
-      "valle": "Valles de Bío Bío, Itata, Colchagua y Casablanca",
-      "image": "/img/Maw_y_Angelina.jpg",
-      "price": "$50.000",
+      "id": "mujer-andina",
+      "title": "N°2 Espumantes/MujerAndina Wines",
+      "valle": "Valles de Bío Bío, Itata y Cachapoal",
+      "image": "/img/Espumantes.jpg",
+      "price": "$25.000",
       "bloques": [
         { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Ai! Brut, Chardonnay/Pinot Noir" },
-        { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre cocktail 0 azúcar añadida" },
-        { "tipoCopa": "blanco", "cantidadBotellas": 4, "nombreVino": "Angelina White Angel, Sauvignon Blanc" }
-        
+        { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre cocktail Zero, Cinsault/Chardonnay" }
       ]
     },
     {
-      "id": "algorta",
-      "title": "N°3 Algorta",
-      "valle": "Valle de Rapel",
-      "image": "/img/Algorta.jpg",
-      "price": "$60.000",
+      "id": "rose",
+      "title": "N°3 Rosados/Viñateros de Raíz y MujerAndina Wines",
+      "valle": "Valle del Maipo",
+      "image": "/img/Rosados.jpg",
+      "price": "$25.000",
       "bloques": [
-        { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Grand Reserve, Cabernet Sauvignon" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Carménère" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Cabernet Sauvignon" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Series Wild Carménère" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Series The Blend" }
+        { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Umbral, Garnacha/Syrah/Monastrell" },
+        { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Keluna, Cabernet Sauvignon/Cabernet Franc" }
+ 
       ]
     },
     {
       "id": "owm",
-      "title": "N°4 OWM",
+      "title": "N°4 Tintos/OWM Wines",
       "valle": "Valle de Colchagua",
-      "image": "/img/OWM.jpg",
-      "price": "$70.000",
+      "image": "/img/Tintos.jpg",
+      "price": "$25.000",
       "bloques": [
-        { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "OWM Hand Made" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made Black" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Contao Petite Sirah" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Divino Petit" }
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made, Ensamblaje" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made Black, Ensamblaje" }
+
+      ]
+    },
+    {
+      "id": "algorta",
+      "title": "N°5 Tintos/Viña Algorta",
+      "valle": "Valle de Rapel",
+      "image": "/img/Tintos_SP.jpg",
+      "price": "$32.000",
+      "bloques": [
+       
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Series, Wild Carménère" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Series, The Blend" }
       ]
     }
+   
   ]
   

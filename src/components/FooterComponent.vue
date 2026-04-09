@@ -42,7 +42,7 @@
                 rel="noopener noreferrer"
                 :aria-disabled="!whatsappReady"
                 :class="{ 'opacity-50': !whatsappReady }"
-                :title="whatsappReady ? undefined : 'Configura WHATSAPP_NUMBER_DIGITS en FooterComponent.vue'"
+                :title="whatsappReady ? undefined : 'Configura WHATSAPP_NUMBER_DIGITS en src/config/whatsapp.js'"
                 aria-label="Haz tu pedido aquí, abrir WhatsApp"
               >
                 <svg class="footer-action-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -66,19 +66,11 @@
   <script setup>
   import { computed, nextTick } from 'vue'
   import { useRouter } from 'vue-router'
-  
-  // ========== RELLENA AQUÍ ==========
-  /** Solo dígitos: código de país + número (sin + ni espacios). Ej. Chile: 56912345678 */
-  const WHATSAPP_NUMBER_DIGITS = '56996450950'
-  // ===================================
-  
-  const whatsappReady = computed(() => WHATSAPP_NUMBER_DIGITS.replace(/\D/g, '').length > 0)
-  
-  const whatsappUrl = computed(() => {
-    const digits = WHATSAPP_NUMBER_DIGITS.replace(/\D/g, '')
-    if (!digits) return '#'
-    return `https://wa.me/${digits}`
-  })
+  import { getWhatsAppUrl, isWhatsAppConfigured } from '@/config/whatsapp'
+
+  const whatsappReady = computed(() => isWhatsAppConfigured())
+
+  const whatsappUrl = computed(() => getWhatsAppUrl())
   
   const router = useRouter()
   
@@ -197,61 +189,6 @@
     position: relative;
     display: inline-flex;
     vertical-align: middle;
-  }
-  
-  .footer-wa-tooltip {
-    position: absolute;
-    left: calc(100% + 10px);
-    top: 50%;
-    translate: -6px -50%;
-    padding: 0.4rem 0.75rem;
-    background: #fff;
-    color: var(--vin-profundo, #3a0f18);
-    font-family: 'Nunito', system-ui, sans-serif;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    line-height: 1.25;
-    text-align: center;
-    white-space: nowrap;
-    border-radius: 0.4rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 20;
-    transition:
-      opacity 0.2s ease,
-      visibility 0.2s ease,
-      translate 0.2s ease;
-  }
-  
-  /* Punta hacia la izquierda (hacia el ícono) */
-  .footer-wa-tooltip::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    translate: 2px -50%;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 7px 8px 7px 0;
-    border-color: transparent #fff transparent transparent;
-    filter: drop-shadow(-2px 0 3px rgba(0, 0, 0, 0.12));
-  }
-  
-  .footer-wa-wrap:hover .footer-wa-tooltip,
-  .footer-wa-wrap:focus-within .footer-wa-tooltip {
-    opacity: 1;
-    visibility: visible;
-    translate: 0 -50%;
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .footer-wa-tooltip {
-      transition: none;
-      translate: 0 -50%;
-    }
   }
   
   .footer-action-icon {

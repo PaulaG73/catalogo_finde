@@ -320,7 +320,7 @@ onUnmounted(() => {
 }
 
 .home-section--slate {
-  background-color: var(--vin-superficie-alterna);
+  background-color: var(--vin-fondo-packs);
 }
 
 .home-divider {
@@ -699,6 +699,8 @@ onUnmounted(() => {
   scroll-snap-stop: normal;
   min-height: 0;
   width: var(--packs-carousel-iw, 100%);
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {
@@ -708,8 +710,9 @@ onUnmounted(() => {
 }
 
 .packs-carousel-slide > * {
+  flex: 1 1 auto;
   width: 100%;
-  height: 100%;
   min-height: 0;
+  align-self: stretch;
 }
 </style>

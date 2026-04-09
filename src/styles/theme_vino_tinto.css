@@ -15,6 +15,8 @@
   --vin-negro-marca: #0b0a0b;
   --vin-superficie-oscura: #141011;
   --vin-superficie-alterna: #1a1416;
+  /* Burdeos oscuro: mismo matiz que el texto “Vinóloga” del logo (--vin-acento), mezclado a fondo */
+  --vin-fondo-packs: #2a151c;
   --vin-texto-claro: rgba(255, 255, 255, 0.94);
   --vin-texto-muted: rgba(255, 255, 255, 0.72);
   --vin-borde-sutil: rgba(255, 255, 255, 0.1);
@@ -42,6 +44,66 @@
 
 .bg-vin-negro {
   background-color: var(--vin-negro-marca) !important;
+}
+
+/* Tooltip junto al botón WhatsApp (footer y tarjetas): un solo estilo */
+.footer-wa-tooltip,
+.card-wa-tooltip {
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  translate: -6px -50%;
+  padding: 0.4rem 0.75rem;
+  background: #fff;
+  color: var(--vin-profundo, #3a0f18);
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    translate 0.2s ease;
+}
+
+.footer-wa-tooltip::after,
+.card-wa-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  translate: 2px -50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 8px 7px 0;
+  border-color: transparent #fff transparent transparent;
+  filter: drop-shadow(-2px 0 3px rgba(0, 0, 0, 0.12));
+}
+
+.footer-wa-wrap:hover .footer-wa-tooltip,
+.footer-wa-wrap:focus-within .footer-wa-tooltip,
+.card-wa-wrap:hover .card-wa-tooltip,
+.card-wa-wrap:focus-within .card-wa-tooltip {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 -50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-wa-tooltip,
+  .card-wa-tooltip {
+    transition: none;
+    translate: 0 -50%;
+  }
 }
 
 .btn-whatsapp {
