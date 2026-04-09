@@ -1,18 +1,26 @@
 <template>
   <NavBar />
 
-  <section id="sobre-mi" class="home-section py-3 py-md-4">
+  <section id="sobre-mi" class="home-section home-section--ink py-3 py-md-4">
     <h3 class="mb-2 mb-md-3 fw-bold">El mundo de Vinóloga</h3>
     <div class="container sobre-mi d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
-      <div class="sobre-mi-foto">
-        <img
-          :src="sobreMiFotoSrc"
-          alt="Paula — Vinóloga, mundo de los vinos con cuento"
-          width="400"
-          height="400"
-          loading="lazy"
-          decoding="async"
-        >
+      <div
+        ref="sobreMiFotoShellRef"
+        class="sobre-mi-foto-shell"
+        :class="{ 'sobre-mi-foto-shell--in-view': sobreMiFotoInView }"
+      >
+        <div class="sobre-mi-foto-marco" aria-hidden="true" />
+        <div class="sobre-mi-foto">
+          <img
+            class="sobre-mi-foto__img"
+            :src="sobreMiFotoSrc"
+            alt="Logo Vinóloga"
+            width="400"
+            height="400"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
       </div>
       <div class="sobre-mi-texto">
         <p class="mb-1 mb-md-2">
@@ -33,9 +41,9 @@
       </a>
     </div>
   </section>
-  <section id="packs" class="home-section pt-4 pt-md-5 pb-2 pb-md-3">
+  <section id="packs" class="home-section home-section--slate pt-4 pt-md-5 pb-2 pb-md-3">
     <div class="container text-center">
-      <h3 class="mb-4 fw-bold">Packs Semana Santa</h3>
+      <h3 class="mb-4 fw-bold">Packs fin de semana</h3>
     </div>
     <div
       class="packs-carousel-outer d-flex align-items-center gap-2 gap-sm-3 px-2 px-sm-3"
@@ -99,7 +107,7 @@
     </div>
   </section>
 
-  <div class="prefooter-pitch container text-center">
+  <div class="prefooter-pitch prefooter-pitch--dark container text-center">
     <span class="prefooter-line">Otros vinos y packs disponibles</span>
     <span class="prefooter-sep" aria-hidden="true">·</span>
     <span class="prefooter-line">Compra desde 1 botella</span>
@@ -122,15 +130,19 @@ import FooterComponent from '../components/FooterComponent.vue'
 import CardComponent from '../components/CardComponent.vue'
 import catalogoPacks from '../data/catalogoPack.json'
 
-/** Foto en public/img/ (guión bajo entre palabras; URL codificada por la "ó") */
-const sobreMiFotoSrc = `/img/${encodeURIComponent('Vinóloga_IA.jpg')}`
+/** Logo en `public/img/logo-vinologa.png` */
+const sobreMiFotoSrc = '/img/logo-vinologa.png'
 
 /** Dos series iguales para bucle de scroll sin salto visible */
 const proyectosLoop = computed(() => [...catalogoPacks, ...catalogoPacks])
 
 const carouselRef = ref(null)
+const sobreMiFotoShellRef = ref(null)
+const sobreMiFotoInView = ref(false)
 const carouselPaused = ref(false)
 const reduceMotion = ref(false)
+
+let sobreMiFotoObserver = null
 
 /** Píxeles por frame (~60 fps); ~0.3 ≈ 18 px/s */
 const SCROLL_STEP = 0.32
@@ -241,8 +253,37 @@ function tick() {
   rafId = requestAnimationFrame(tick)
 }
 
+function setupSobreMiFotoReveal() {
+  if (reduceMotion.value) {
+    sobreMiFotoInView.value = true
+    return
+  }
+  const shell = sobreMiFotoShellRef.value
+  if (!shell) {
+    sobreMiFotoInView.value = true
+    return
+  }
+  if (typeof IntersectionObserver === 'undefined') {
+    sobreMiFotoInView.value = true
+    return
+  }
+  sobreMiFotoObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          sobreMiFotoInView.value = true
+          sobreMiFotoObserver?.unobserve(entry.target)
+        }
+      }
+    },
+    { threshold: 0.22, rootMargin: '0px 0px -8% 0px' },
+  )
+  sobreMiFotoObserver.observe(shell)
+}
+
 onMounted(() => {
   reduceMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  setupSobreMiFotoReveal()
   syncCarouselInlineSize()
   const el = carouselRef.value
   if (el && typeof ResizeObserver !== 'undefined') {
@@ -253,6 +294,8 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  sobreMiFotoObserver?.disconnect()
+  sobreMiFotoObserver = null
   if (syncCarouselRaf != null) {
     cancelAnimationFrame(syncCarouselRaf)
     syncCarouselRaf = null
@@ -269,7 +312,15 @@ onUnmounted(() => {
 
 <style scoped>
 .home-section {
-  background-color: var(--vin-fondo-seccion);
+  background-color: var(--vin-negro-marca);
+}
+
+.home-section--ink {
+  background-color: var(--vin-negro-marca);
+}
+
+.home-section--slate {
+  background-color: var(--vin-superficie-alterna);
 }
 
 .home-divider {
@@ -289,13 +340,18 @@ onUnmounted(() => {
   padding-top: 0.65rem;
   padding-bottom: 1.25rem;
   margin-bottom: 0.35rem;
-  background-color: var(--vin-fondo-seccion);
+}
+
+.prefooter-pitch--dark {
+  background-color: var(--vin-superficie-oscura);
+  border-top: 1px solid var(--vin-borde-sutil);
+  border-bottom: 1px solid var(--vin-borde-sutil);
 }
 
 .prefooter-line {
   font-size: clamp(0.78rem, 2.1vw, 0.92rem);
   line-height: 1.4;
-  color: #2c3e50;
+  color: var(--vin-texto-muted);
 }
 
 .prefooter-sep {
@@ -331,7 +387,7 @@ onUnmounted(() => {
   padding: 0.2em 0.85em 1rem;
   margin-bottom: 0.4rem;
   z-index: 0;
-  color: var(--vin-profundo, #3a0f18);
+  color: var(--vin-texto-claro);
 }
 
 /*
@@ -358,29 +414,28 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
+/* Guiño al arco del logo: franja breve, sin verdes de “viña” */
 .home-section h3::after {
   content: '';
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   left: 50%;
-  bottom: 0.32rem;
-  width: 9px;
-  height: 5px;
-  transform: translateX(calc(-50% - 0.72rem)) rotate(-38deg);
-  transform-origin: center center;
-  background: rgba(74, 98, 58, 0.9);
-  border-radius: 50%;
+  bottom: 0.12rem;
+  width: clamp(2.5rem, 18vw, 3.75rem);
+  height: 3px;
+  transform: translateX(-50%);
+  border-radius: 2px;
   pointer-events: none;
-  box-shadow:
-    0.42rem 0.12rem 0 0 rgba(62, 86, 50, 0.88),
-    0.72rem -0.18rem 0 0 rgba(88, 112, 72, 0.82),
-    1.02rem 0.02rem 0 0 rgba(56, 78, 46, 0.86),
-    0.22rem 0.4rem 0 0 rgba(92, 118, 76, 0.78),
-    0.58rem 0.48rem 0 0 rgba(68, 92, 56, 0.84),
-    0.88rem 0.42rem 0 0 rgba(78, 102, 64, 0.8),
-    1.18rem 0.38rem 0 0 rgba(64, 88, 52, 0.75),
-    0.55rem -0.42rem 0 0 rgba(82, 105, 68, 0.72),
-    1.05rem -0.28rem 0 0 rgba(var(--vin-acento-rgb), 0.45);
+  background: linear-gradient(
+    90deg,
+    #c9a227 0%,
+    #3ddc84 22%,
+    #4dabf7 44%,
+    #9775fa 66%,
+    #f783ac 88%,
+    var(--vin-acento) 100%
+  );
+  opacity: 0.88;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -406,10 +461,12 @@ onUnmounted(() => {
 @keyframes homeTituloVinaHojas {
   0%,
   100% {
-    transform: translateX(calc(-50% - 0.72rem)) rotate(-38deg);
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.88;
   }
   50% {
-    transform: translateX(calc(-50% - 0.66rem)) rotate(-34deg);
+    transform: translateX(-50%) scaleX(1.06);
+    opacity: 1;
   }
 }
 
@@ -420,28 +477,93 @@ onUnmounted(() => {
   }
 }
 
-#sobre-mi .sobre-mi-foto {
+#sobre-mi .sobre-mi-foto-shell {
   --foto-tam: 184px;
   flex: 0 0 auto;
   width: var(--foto-tam);
   height: var(--foto-tam);
+  margin-inline: auto;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.96) translateY(14px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#sobre-mi .sobre-mi-foto-shell--in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.sobre-mi-foto-marco {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    #c9a227,
+    #3ddc84,
+    #4dabf7,
+    #9775fa,
+    #f783ac,
+    rgba(var(--vin-acento-rgb), 0.95),
+    #c9a227
+  );
+  animation: sobreMiMarcoGiro 12s linear infinite;
+}
+
+@keyframes sobreMiMarcoGiro {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#sobre-mi .sobre-mi-foto {
+  position: absolute;
+  inset: 3px;
+  z-index: 1;
   border-radius: 50%;
   overflow: hidden;
-  margin-inline: auto;
+  background-color: var(--vin-negro-marca);
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.1),
+    0 12px 36px rgba(0, 0, 0, 0.45);
 }
 
 @media (min-width: 768px) {
-  #sobre-mi .sobre-mi-foto {
+  #sobre-mi .sobre-mi-foto-shell {
     --foto-tam: 216px;
     margin-inline: 0;
   }
 }
 
-.sobre-mi-foto img {
+.sobre-mi-foto__img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #sobre-mi .sobre-mi-foto-shell {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .sobre-mi-foto-marco {
+    animation: none;
+    background: linear-gradient(
+      145deg,
+      rgba(var(--vin-acento-rgb), 0.55),
+      rgba(255, 255, 255, 0.12)
+    );
+  }
 }
 
 #sobre-mi .sobre-mi-texto {
@@ -451,6 +573,7 @@ onUnmounted(() => {
   text-align: justify;
   line-height: 1.6;
   font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  color: var(--vin-texto-muted);
 }
 
 .sobre-mi-vino-mayus {
@@ -470,9 +593,15 @@ onUnmounted(() => {
 }
 
 @keyframes colorPulse {
-  0%   { color: #2c3e50; }
-  50%  { color: var(--vin-acento); }
-  100% { color: #2c3e50; }
+  0% {
+    color: var(--vin-texto-muted);
+  }
+  50% {
+    color: var(--vin-acento);
+  }
+  100% {
+    color: var(--vin-texto-muted);
+  }
 }
 
 .btn-top {

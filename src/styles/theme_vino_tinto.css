@@ -11,6 +11,14 @@
   --vin-profundo: #3a0f18;
   --vin-profundo-rgb: 58, 15, 24;
 
+  /* Look oscuro tipo logo (negro + gris vino) */
+  --vin-negro-marca: #0b0a0b;
+  --vin-superficie-oscura: #141011;
+  --vin-superficie-alterna: #1a1416;
+  --vin-texto-claro: rgba(255, 255, 255, 0.94);
+  --vin-texto-muted: rgba(255, 255, 255, 0.72);
+  --vin-borde-sutil: rgba(255, 255, 255, 0.1);
+
   /* Verde marca WhatsApp (solo botón WA) */
   --wa-green: #25d366;
   --wa-green-hover: #20bd5a;
@@ -30,6 +38,10 @@
 
 .bg-vino-profundo {
   background-color: var(--vin-profundo) !important;
+}
+
+.bg-vin-negro {
+  background-color: var(--vin-negro-marca) !important;
 }
 
 .btn-whatsapp {

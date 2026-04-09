@@ -1,12 +1,12 @@
-# Catálogo Semana Santa — Vinóloga
+# Catálogo Fin de Semana — Vinóloga
 
 
 
 SPA en Vue 3 que muestra oferta de packs de vino para Semana Santa: Presentación de marca, carrusel de tarjetas con datos desde JSON y pie de página con direccionamiento a whatsapp.
 
-- **Repositorio:** [GitHub — catalogo_vinos](https://github.com/PaulaG73/catalogo_vinos)
+- **Repositorio:** [GitHub — catalogo_vinos](https://github.com/PaulaG73/catalogo_finde)
 
-- **Demo (producción):** [catalogovinos.netlify.app](https://catalogovinos.netlify.app)
+- **Demo (producción):** [catalogovinos.netlify.app](https://catalogofinde.netlify.app)
 
 ---
 
@@ -172,7 +172,7 @@ npm run serve
 
 
 
-Abre [http://localhost:8080](http://localhost:8080) en tu navegador.
+Abre [http://localhost:8080] en tu navegador.
 
 
 
@@ -204,7 +204,7 @@ Para que el `index.html` generado incluya `og:url`, `og:image` y las meta de Twi
 
 |---|---|---|
 
-| `.env.production` en la raíz (cargado al ejecutar `npm run build`) | `VUE_APP_PUBLIC_SITE_URL` | `https://catalogovinos.netlify.app` |
+| `.env.production` en la raíz (cargado al ejecutar `npm run build`) | `VUE_APP_PUBLIC_SITE_URL` | `https://catalogofinde.netlify.app` |
 
 | Panel de Netlify → Environment variables | Misma variable | Mismo valor |
 

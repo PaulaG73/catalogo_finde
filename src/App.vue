@@ -8,26 +8,21 @@
     html {
       scroll-behavior: smooth;
     }
-    
+
+    body {
+      margin: 0;
+      background-color: var(--vin-negro-marca);
+      color: var(--vin-texto-claro);
+    }
+
     #app {
       font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-align: center;
-      color: #2c3e50;
-    }
-    
-    nav {
-      padding: 30px;
-    }
-    
-    nav a {
-      font-weight: bold;
-      color: #2c3e50;
-    }
-    
-    nav a.router-link-exact-active {
-      color: var(--vin-acento);
+      min-height: 100vh;
+      color: var(--vin-texto-claro);
+      background-color: var(--vin-negro-marca);
     }
     </style>
     

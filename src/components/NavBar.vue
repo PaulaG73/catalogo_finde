@@ -1,8 +1,10 @@
 <template>
     <div class="navBar">
-      <nav id="navbar-principal" class="navbar navbar-expand-lg navbar-dark bg-vino-profundo border-bottom py-2 py-md-4 nav-vino">
+      <nav id="navbar-principal" class="navbar navbar-expand-lg navbar-dark bg-vin-negro border-bottom py-2 py-md-4 nav-vino">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Catálogo Semana Santa</a>
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <span class="navbar-brand-text">Catálogo Fin de Semana</span>
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,7 +35,8 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
   .nav-vino {
-    border-color: rgba(255, 255, 255, 0.12) !important;
+    border-color: var(--vin-borde-sutil) !important;
+    box-shadow: 0 1px 0 0 rgba(109, 44, 53, 0.35);
   }
   
   .nav-vino .navbar-brand,

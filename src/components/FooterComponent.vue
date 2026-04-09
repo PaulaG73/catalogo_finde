@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer py-2 py-md-4 mt-auto bg-vino-profundo border-top footer-vino">
+    <footer class="footer py-2 py-md-4 mt-auto bg-vin-negro border-top footer-vino">
       <div class="container d-flex align-items-center flex-wrap gap-2">
   
         <!-- Botón volver al inicio (izquierda, ancho fijo) -->
@@ -99,7 +99,8 @@
   
   <style scoped>
   .footer-vino {
-    border-color: rgba(255, 255, 255, 0.12) !important;
+    border-color: var(--vin-borde-sutil) !important;
+    box-shadow: 0 -1px 0 0 rgba(109, 44, 53, 0.28);
   }
   
   .footer {

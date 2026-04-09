@@ -11,7 +11,7 @@ module.exports = defineConfig({
   pages: {
     index: {
       entry: 'src/main.js',
-      title: 'Catálogo Semana Santa · Vinóloga',
+      title: 'Catálogo Fin de Semana · Vinóloga',
     },
   },
   devServer: {
@@ -25,7 +25,7 @@ module.exports = defineConfig({
       const origin = publicSiteOrigin()
       const opts = args[0]
       opts.ogPageUrl = origin ? `${origin}/` : ''
-      opts.ogImageUrl = origin ? `${origin}/img/Vin%C3%B3loga_IA.jpg` : ''
+      opts.ogImageUrl = origin ? `${origin}/img/logo-vinologa.png` : ''
       return args
     })
   },

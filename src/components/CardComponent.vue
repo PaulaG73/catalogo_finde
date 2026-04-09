@@ -129,6 +129,9 @@
     border-radius: 1.125rem;
     overflow: hidden;
     --bs-card-inner-border-radius: calc(1.125rem - 1px);
+    box-shadow:
+      0 10px 32px rgba(0, 0, 0, 0.42),
+      0 2px 10px rgba(0, 0, 0, 0.28);
   }
   
   .card-pack-body {
