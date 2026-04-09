@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="description" content="Catálogo Semana Santa — Vinóloga. Packs de vino de distintos valles; pedidos y consultas por WhatsApp. Vinos con cuento.">
+    <% if (htmlWebpackPlugin.options.ogPageUrl) { %>
+    <meta property="og:site_name" content="Vinóloga">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:title" content="Catálogo Semana Santa · Vinóloga">
+    <meta property="og:description" content="Packs de vino para Semana Santa: tintos, blancos, rosados y espumantes. Conoce la oferta y haz tu pedido por WhatsApp.">
+    <meta property="og:url" content="<%= htmlWebpackPlugin.options.ogPageUrl %>">
+    <meta property="og:image" content="<%= htmlWebpackPlugin.options.ogImageUrl %>">
+    <meta property="og:image:alt" content="Paula — Vinóloga, catálogo Semana Santa">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catálogo Semana Santa · Vinóloga">
+    <meta name="twitter:description" content="Packs de vino para Semana Santa. Pedidos por WhatsApp.">
+    <meta name="twitter:image" content="<%= htmlWebpackPlugin.options.ogImageUrl %>">
+    <% } %>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

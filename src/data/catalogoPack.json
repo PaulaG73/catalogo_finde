@@ -1,0 +1,55 @@
+[
+    {
+      "id": "alchemysta",
+      "title": "N°1 Alchemysta",
+      "valle": "Valles de Casablanca y Cachapoal",
+      "image": "/img/Alchemysta.jpg",
+      "price": "$45.000",
+      "bloques": [
+        { "tipoCopa": "blanco", "cantidadBotellas": 3, "nombreVino": "Angelina White Angel, Sauvignon Blanc" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Parróne, Cabernet Sauvignon/Syrah" }
+      
+      ]
+    },
+    {
+      "id": "mujer-andina-angelina",
+      "title": "N°2 MujerAndina/Angelina",
+      "valle": "Valles de Bío Bío, Itata, Colchagua y Casablanca",
+      "image": "/img/Maw_y_Angelina.jpg",
+      "price": "$50.000",
+      "bloques": [
+        { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Ai! Brut, Chardonnay/Pinot Noir" },
+        { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre cocktail 0 azúcar añadida" },
+        { "tipoCopa": "blanco", "cantidadBotellas": 4, "nombreVino": "Angelina White Angel, Sauvignon Blanc" }
+        
+      ]
+    },
+    {
+      "id": "algorta",
+      "title": "N°3 Algorta",
+      "valle": "Valle de Rapel",
+      "image": "/img/Algorta.jpg",
+      "price": "$60.000",
+      "bloques": [
+        { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Grand Reserve, Cabernet Sauvignon" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Carménère" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Cabernet Sauvignon" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Series Wild Carménère" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Series The Blend" }
+      ]
+    },
+    {
+      "id": "owm",
+      "title": "N°4 OWM",
+      "valle": "Valle de Colchagua",
+      "image": "/img/OWM.jpg",
+      "price": "$70.000",
+      "bloques": [
+        { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "OWM Hand Made" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made Black" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Contao Petite Sirah" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Divino Petit" }
+      ]
+    }
+  ]
+  
