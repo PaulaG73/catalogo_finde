@@ -91,12 +91,9 @@
   
   <script setup>
   import { computed } from 'vue'
-  import { getWhatsAppUrl, isWhatsAppConfigured } from '@/config/whatsapp'
+  import { getWhatsAppPackUrl, isWhatsAppConfigured } from '@/config/whatsapp'
 
-  const whatsappUrl = computed(() => getWhatsAppUrl())
-  const whatsappReady = computed(() => isWhatsAppConfigured())
-
-  defineProps({
+  const props = defineProps({
     title: {
       type: String,
       required: true,
@@ -136,6 +133,16 @@
       required: true,
     },
   })
+
+  const whatsappUrl = computed(() =>
+    getWhatsAppPackUrl({
+      title: props.title,
+      valle: props.valle,
+      price: props.price,
+      image: props.image,
+    }),
+  )
+  const whatsappReady = computed(() => isWhatsAppConfigured())
   
   function etiquetaBotellas(n) {
     if (typeof n !== 'number' || !Number.isFinite(n)) return ''
