@@ -46,8 +46,8 @@ function getShareBaseOrigin() {
   return ''
 }
 
-/** Packs con página estática `public/share/{id}.html` (Open Graph → miniatura en WhatsApp). */
-const PACK_IDS_WITH_SHARE_PAGE = new Set([
+/** Packs con página OG en la raíz del sitio: `public/og-{id}.html` (evita que `/* → index.html` sombra /share/ en Netlify). */
+const PACK_IDS_WITH_OG_PAGE = new Set([
   'alchemysta',
   'mujer-andina',
   'rose',
@@ -56,15 +56,14 @@ const PACK_IDS_WITH_SHARE_PAGE = new Set([
 ])
 
 /**
- * URL para vista previa en WhatsApp: página HTML con og:image (no el .jpg directo).
- * Si no hay `packId` conocido, se usa la imagen del pack.
+ * URL para vista previa en WhatsApp: HTML con og:image (no el .jpg directo).
  */
 function resolvePackPreviewUrlForWhatsApp(packId, imagePath) {
   const base = getShareBaseOrigin()
   if (!base) return resolvePackImageUrlForWhatsApp(imagePath)
   const id = typeof packId === 'string' ? packId.trim() : ''
-  if (id && /^[a-z0-9-]+$/i.test(id) && PACK_IDS_WITH_SHARE_PAGE.has(id)) {
-    return `${base}/share/${id}.html`
+  if (id && /^[a-z0-9-]+$/i.test(id) && PACK_IDS_WITH_OG_PAGE.has(id)) {
+    return `${base}/og-${id}.html`
   }
   return resolvePackImageUrlForWhatsApp(imagePath)
 }
@@ -140,7 +139,7 @@ export function getWhatsAppPackUrl(pack) {
   const priceTxt = priceForWhatsAppMessage(price)
   if (priceTxt) parts.push(`Precio (CLP): ${priceTxt}`)
 
-  const text = parts.join('\n')
+  const text = `${parts.join('\n').trimEnd()}\n`
   return `https://wa.me/${digits}?text=${encodeURIComponent(text)}`
 }
 

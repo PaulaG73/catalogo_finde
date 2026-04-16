@@ -5,5 +5,5 @@
 /index.html
   Cache-Control: no-cache, must-revalidate
 
-/share/*
+/og-*.html
   Cache-Control: no-cache, must-revalidate

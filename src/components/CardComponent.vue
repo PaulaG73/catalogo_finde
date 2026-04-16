@@ -69,6 +69,7 @@
               :aria-disabled="!whatsappReady"
               :class="{ 'opacity-50': !whatsappReady }"
               :aria-label="`Pedir el pack ${title} por WhatsApp`"
+              @click="onWaCardClick"
             >
               <svg
                 class="card-wa-icon"
@@ -148,6 +149,20 @@
     }),
   )
   const whatsappReady = computed(() => isWhatsAppConfigured())
+
+  let lastWaOpenMs = 0
+  function onWaCardClick(e) {
+    if (!whatsappReady.value) {
+      e.preventDefault()
+      return
+    }
+    const now = Date.now()
+    if (now - lastWaOpenMs < 2000) {
+      e.preventDefault()
+      return
+    }
+    lastWaOpenMs = now
+  }
   
   function etiquetaBotellas(n) {
     if (typeof n !== 'number' || !Number.isFinite(n)) return ''
