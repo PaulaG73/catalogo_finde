@@ -1,7 +1,17 @@
 <template>
-    <div class="card card-pack h-100 d-flex flex-column shadow-sm border-success">
-      <div class="card-img-wrap flex-shrink-0">
-        <img :src="image" class="card-img-top" :alt="`${title}. ${valle}`" loading="lazy">
+    <div
+      class="card card-pack h-100 d-flex flex-column shadow-sm"
+      :class="agotado ? 'card-pack--agotado border-secondary' : 'border-success'"
+    >
+      <div class="card-img-wrap card-img-wrap--pack flex-shrink-0">
+        <span v-if="agotado" class="card-pack-agotado-badge">Agotado</span>
+        <img
+          :src="image"
+          class="card-img-top"
+          :class="{ 'card-pack-img--agotado': agotado }"
+          :alt="`${title}. ${valle}${agotado ? ' (agotado)' : ''}`"
+          loading="lazy"
+        >
       </div>
       <div class="card-body card-pack-body d-flex flex-column flex-grow-1">
         <div class="card-heading flex-shrink-0 w-100 text-center">
@@ -57,17 +67,26 @@
         </div>
         <hr class="card-divider flex-shrink-0">
         <div class="card-price-footer flex-shrink-0">
-          <p class="card-price mb-0 fw-bold text-success text-center">{{ price }}</p>
+          <p
+            class="card-price mb-0 fw-bold text-center"
+            :class="agotado ? 'text-secondary text-decoration-line-through' : 'text-success'"
+          >
+            {{ price }}
+          </p>
         </div>
         <div class="card-wa-footer flex-shrink-0">
           <span class="card-wa-wrap">
             <a
               class="btn btn-whatsapp rounded-circle card-wa-btn shadow-sm"
-              :href="whatsappUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              :aria-disabled="!whatsappReady"
-              :class="{ 'opacity-50': !whatsappReady }"
+              :href="agotado ? '#' : whatsappUrl"
+              :target="agotado ? undefined : '_blank'"
+              :rel="agotado ? undefined : 'noopener noreferrer'"
+              :aria-disabled="agotado || !whatsappReady"
+              :class="{
+                'opacity-50': !whatsappReady || agotado,
+                'pe-none': agotado,
+                'cursor-not-allowed': agotado,
+              }"
               :aria-label="whatsappLinkAriaLabel"
               @click="onWaCardClick"
             >
@@ -137,6 +156,10 @@
       type: String,
       required: true,
     },
+    agotado: {
+      type: Boolean,
+      default: false,
+    },
   })
 
   const whatsappUrl = computed(() =>
@@ -158,17 +181,23 @@
   }
 
   const waTooltipText = computed(() => {
+    if (props.agotado) return 'Este pack está agotado'
     const n = packNumeroFromTitulo(props.title)
     return n ? `Pide el pack ${n} aquí...` : 'Pide tu pack aquí...'
   })
 
   const whatsappLinkAriaLabel = computed(() => {
+    if (props.agotado) return 'Pack agotado, pedido no disponible'
     const n = packNumeroFromTitulo(props.title)
     return n ? `Pedir el pack ${n} por WhatsApp` : 'Pedir pack por WhatsApp'
   })
 
   let lastWaOpenMs = 0
   function onWaCardClick(e) {
+    if (props.agotado) {
+      e.preventDefault()
+      return
+    }
     if (!whatsappReady.value) {
       e.preventDefault()
       return
@@ -222,6 +251,39 @@
     overflow: hidden;
     background: rgba(0, 0, 0, 0.04);
     border-radius: 1.125rem 1.125rem 0 0;
+  }
+
+  .card-img-wrap--pack {
+    position: relative;
+  }
+
+  .card-pack-agotado-badge {
+    position: absolute;
+    top: 0.55rem;
+    left: 50%;
+    z-index: 2;
+    translate: -50% 0;
+    padding: 0.38rem 0.85rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(145deg, #6a6a6a, #3d3d3d);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 0.4rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+  }
+
+  .card-pack-img--agotado {
+    filter: grayscale(1) brightness(0.9);
+  }
+
+  .card-pack--agotado .card-title,
+  .card-pack--agotado .card-valle,
+  .card-pack--agotado .card-bloque {
+    opacity: 0.88;
   }
   
   .card-img-top {

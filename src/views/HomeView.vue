@@ -84,6 +84,7 @@
               :bloques="proyecto.bloques"
               :image="proyecto.image"
               :price="proyecto.price"
+              :agotado="Boolean(proyecto.agotado)"
             />
           </div>
         </div>
@@ -574,11 +575,11 @@ onUnmounted(() => {
   text-align: justify;
   line-height: 1.6;
   font-size: clamp(0.85rem, 2.2vw, 0.95rem);
-  color: var(--vin-texto-muted);
+  color: var(--vin-texto-claro);
 }
 
 .sobre-mi-vino-mayus {
-  color: var(--vin-acento);
+  color: var(--vin-acento-sobre-negro);
   font-weight: 700;
 }
 

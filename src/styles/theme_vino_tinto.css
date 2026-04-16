@@ -11,14 +11,16 @@
   --vin-profundo: #3a0f18;
   --vin-profundo-rgb: 58, 15, 24;
 
-  /* Look oscuro tipo logo (negro + gris vino) */
-  --vin-negro-marca: #0b0a0b;
-  --vin-superficie-oscura: #141011;
-  --vin-superficie-alterna: #1a1416;
-  /* Burdeos oscuro: mismo matiz que el texto “Vinóloga” del logo (--vin-acento), mezclado a fondo */
-  --vin-fondo-packs: #2a151c;
-  --vin-texto-claro: rgba(255, 255, 255, 0.94);
-  --vin-texto-muted: rgba(255, 255, 255, 0.72);
+  /* Look oscuro: negro neutro (menos carga “vino” en el pixel) + superficies */
+  --vin-negro-marca: #0a0a0a;
+  --vin-superficie-oscura: #121112;
+  --vin-superficie-alterna: #181618;
+  /* Burdeos packs: un poco más bajo en saturación / más legible con texto claro */
+  --vin-fondo-packs: #24161c;
+  --vin-texto-claro: rgba(255, 255, 255, 0.96);
+  --vin-texto-muted: rgba(255, 255, 255, 0.8);
+  /* Acento aclarado para texto sobre negro (p. ej. “Sobre mí”) */
+  --vin-acento-sobre-negro: #e4b3bc;
   --vin-borde-sutil: rgba(255, 255, 255, 0.1);
 
   /* Verde marca WhatsApp (solo botón WA) */

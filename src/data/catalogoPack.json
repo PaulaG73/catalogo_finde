@@ -26,6 +26,7 @@
       "id": "rose",
       "title": "N°3 Rosados/Viñateros de Raíz y MujerAndina Wines",
       "valle": "Valle del Maipo",
+      "agotado": true,
       "image": "/img/Rosados.jpg",
       "price": "$25.000",
       "bloques": [
