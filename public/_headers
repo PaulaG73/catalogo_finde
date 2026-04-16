@@ -4,3 +4,6 @@
 
 /index.html
   Cache-Control: no-cache, must-revalidate
+
+/share/*
+  Cache-Control: no-cache, must-revalidate

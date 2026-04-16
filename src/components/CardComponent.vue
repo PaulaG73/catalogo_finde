@@ -94,6 +94,10 @@
   import { getWhatsAppPackUrl, isWhatsAppConfigured } from '@/config/whatsapp'
 
   const props = defineProps({
+    packId: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -136,6 +140,7 @@
 
   const whatsappUrl = computed(() =>
     getWhatsAppPackUrl({
+      packId: props.packId,
       title: props.title,
       valle: props.valle,
       price: props.price,

@@ -46,6 +46,29 @@ function getShareBaseOrigin() {
   return ''
 }
 
+/** Packs con página estática `public/share/{id}.html` (Open Graph → miniatura en WhatsApp). */
+const PACK_IDS_WITH_SHARE_PAGE = new Set([
+  'alchemysta',
+  'mujer-andina',
+  'rose',
+  'owm',
+  'algorta',
+])
+
+/**
+ * URL para vista previa en WhatsApp: página HTML con og:image (no el .jpg directo).
+ * Si no hay `packId` conocido, se usa la imagen del pack.
+ */
+function resolvePackPreviewUrlForWhatsApp(packId, imagePath) {
+  const base = getShareBaseOrigin()
+  if (!base) return resolvePackImageUrlForWhatsApp(imagePath)
+  const id = typeof packId === 'string' ? packId.trim() : ''
+  if (id && /^[a-z0-9-]+$/i.test(id) && PACK_IDS_WITH_SHARE_PAGE.has(id)) {
+    return `${base}/share/${id}.html`
+  }
+  return resolvePackImageUrlForWhatsApp(imagePath)
+}
+
 /**
  * URL absoluta de un asset en `public/` para compartir por WhatsApp (solo HTTPS y dominio público).
  */
@@ -96,27 +119,21 @@ export function getWhatsAppUrl() {
 }
 
 /**
- * Enlace wa.me con texto prellenado: datos del pack + URL de la foto.
- * El enlace a la imagen va antes del precio y sin `$` en el precio por compatibilidad con WhatsApp.
- * @param {{ title: string, valle: string, price: string, image: string }} pack
+ * Enlace wa.me con texto breve: saludo, URL de vista previa del pack (og:image), precio.
+ * Título y valle van en la tarjeta de vista previa de WhatsApp, no se repiten en el texto.
+ * @param {{ price: string, image: string, packId?: string }} pack
  */
 export function getWhatsAppPackUrl(pack) {
   const digits = digitsOnly()
   if (!digits) return '#'
 
-  const title = typeof pack?.title === 'string' ? pack.title.trim() : ''
-  const valle = typeof pack?.valle === 'string' ? pack.valle.trim() : ''
   const price = typeof pack?.price === 'string' ? pack.price.trim() : ''
-  const imageUrl = resolvePackImageUrlForWhatsApp(pack?.image || '')
+  const previewUrl = resolvePackPreviewUrlForWhatsApp(pack?.packId, pack?.image || '')
 
-  const parts = ['Hola, quiero pedir este pack fin de semana:', '']
-  if (title) parts.push(`Pack: ${title}`)
-  if (valle) parts.push(`Valle: ${valle}`)
-  parts.push('')
+  const parts = ['Hola, quiero pedir este pack fin de semana.', '']
 
-  if (imageUrl && /^https:\/\//i.test(imageUrl)) {
-    parts.push('Foto del pack (enlace):')
-    parts.push(imageUrl)
+  if (previewUrl && /^https:\/\//i.test(previewUrl)) {
+    parts.push(previewUrl)
     parts.push('')
   }
 

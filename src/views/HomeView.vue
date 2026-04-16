@@ -78,6 +78,7 @@
             class="packs-carousel-slide"
           >
             <CardComponent
+              :pack-id="proyecto.id"
               :title="proyecto.title"
               :valle="proyecto.valle"
               :bloques="proyecto.bloques"
