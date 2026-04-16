@@ -118,7 +118,17 @@ export function getWhatsAppUrl() {
 }
 
 /**
- * Enlace wa.me con texto breve: saludo, URL de vista previa del pack (og:image), precio.
+ * WhatsApp desde el pie: un solo texto (api.whatsapp.com evita rarezas con wa.me + borradores viejos).
+ */
+export function getWhatsAppFooterUrl() {
+  const digits = digitsOnly()
+  if (!digits) return '#'
+  const text = 'Hola Vinóloga, quiero hacer un pedido de vinos...'
+  return `https://api.whatsapp.com/send?phone=${digits}&text=${encodeURIComponent(text)}`
+}
+
+/**
+ * Enlace wa.me: saludo corto, URL de vista previa del pack (og:image), precio.
  * Título y valle van en la tarjeta de vista previa de WhatsApp, no se repiten en el texto.
  * @param {{ price: string, image: string, packId?: string }} pack
  */
@@ -129,7 +139,7 @@ export function getWhatsAppPackUrl(pack) {
   const price = typeof pack?.price === 'string' ? pack.price.trim() : ''
   const previewUrl = resolvePackPreviewUrlForWhatsApp(pack?.packId, pack?.image || '')
 
-  const parts = ['Hola, quiero pedir este pack fin de semana.', '']
+  const parts = ['Hola, quiero pedir este pack', '']
 
   if (previewUrl && /^https:\/\//i.test(previewUrl)) {
     parts.push(previewUrl)
