@@ -46,6 +46,17 @@ function getShareBaseOrigin() {
   return ''
 }
 
+const OG_PAGE_SUFFIX = '.html'
+
+/**
+ * Nombre de archivo en `public/`: `og-{id en minúsculas}.html` (Netlify/Linux distinguen mayúsculas; si no coincide, cae el SPA y WhatsApp muestra el og:image del index: logo).
+ */
+function packOgPagePath(packId) {
+  const id = typeof packId === 'string' ? packId.trim() : ''
+  if (!id) return ''
+  return `og-${id.toLowerCase()}${OG_PAGE_SUFFIX}`
+}
+
 /** Packs con página OG en la raíz del sitio: `public/og-{id}.html` (evita que `/* → index.html` sombra /share/ en Netlify). */
 const PACK_IDS_WITH_OG_PAGE = new Set([
   'alchemysta',
@@ -53,6 +64,9 @@ const PACK_IDS_WITH_OG_PAGE = new Set([
   'rose',
   'owm',
   'algorta',
+  'rockStar',
+  'coleccionAlgorta',
+  'innovacion',
 ])
 
 /**
@@ -63,7 +77,7 @@ function resolvePackPreviewUrlForWhatsApp(packId, imagePath) {
   if (!base) return resolvePackImageUrlForWhatsApp(imagePath)
   const id = typeof packId === 'string' ? packId.trim() : ''
   if (id && /^[a-z0-9-]+$/i.test(id) && PACK_IDS_WITH_OG_PAGE.has(id)) {
-    return `${base}/og-${id}.html`
+    return `${base}/${packOgPagePath(id)}`
   }
   return resolvePackImageUrlForWhatsApp(imagePath)
 }
