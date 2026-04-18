@@ -63,7 +63,7 @@
       "id": "rockStar",
       "title": "N°6 Caja Rock Stars",
       "valle": "Valles Rapel, Cachapoal y Colchagua",
-      "image": "/img/rockStars.jpg",
+      "image": "/img/pack-rockstars.jpg",
       "price": "$45.000",
       "bloques": [
        
@@ -76,7 +76,7 @@
       "id": "coleccionAlgorta",
       "title": "N°7 Colección/Viña Algorta",
       "valle": "Valle de Rapel",
-      "image": "/img/colecciónAlgorta.jpg",
+      "image": "/img/coleccion-algorta.jpg",
       "price": "$50.000",
       "bloques": [
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Carménère" },
@@ -91,7 +91,7 @@
       "id": "innovacion",
       "title": "N°8 Caja Innovación",
       "valle": "Valles del Maipo, Cachapoal e Itata",
-      "image": "/img/Innovación.jpg",
+      "image": "/img/innovacion.jpg",
       "price": "$75.000",
       "bloques": [
         { "tipoCopa": "espumante", "cantidadBotellas": 2, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay, Mujer Andina Wines" },
