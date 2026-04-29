@@ -55,8 +55,8 @@
       "price": "$32.000",
       "bloques": [
        
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Serie, Wild Carménère" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Serie, The Blend" }
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Series, Wild Carménère" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Series, The Blend" }
       ]
     },
     {
@@ -69,7 +69,7 @@
        
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Cabernet Sauvignon/Syrah, Alchemysta Wines" },
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Pillo de Panamá Cabernet Sauvignon/Syrah/Petit Verdot, OWM Wines" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Carménère" }
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Carménère, Viña Algorta" }
       ]
     },
     {
@@ -132,8 +132,8 @@
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Cabernet Sauvignon" },
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Carménère" },
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Cabernet Sauvignon" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Serie, Wild Carménère" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Serie, The Blend" }
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Series, Wild Carménère" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Series, The Blend" }
       ]
     },
     {
