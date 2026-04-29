@@ -115,7 +115,7 @@
       "title": "N°10 Algorta Grand Reserve",
       "valle": "Valle de Rapel",
       "image": "/img/GR_Algorta.jpg",
-      "price": "$45.000",
+      "price": "$40.000",
       "bloques": [
         { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Carménère" },
         { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Cabernet Sauvignon" }
