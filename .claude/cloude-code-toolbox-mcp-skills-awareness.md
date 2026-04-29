@@ -1,6 +1,6 @@
 # Cloude Code ToolBox — MCP & Skills awareness
 
-_Generated: 2026-04-07T00:35:31.289Z_
+_Generated: 2026-04-29T19:31:38.261Z_
 
 ## How to use this report
 
@@ -13,9 +13,9 @@ _Generated: 2026-04-07T00:35:31.289Z_
 
 ## MCP — workspace
 
-Workspace `mcp.json` _(folder: catalogo_vinos)_
+Workspace `mcp.json` _(folder: catalogo_finde)_
 
-- **c:\Users\paula\OneDrive\Desktop\Bootcamp_Frontend_2025\MÓDULO_7\catalogo_vinos\.vscode\mcp.json** — _File missing_
+- **c:\Users\paula\OneDrive\Desktop\Bootcamp_Frontend_2025\MÓDULO_7\catalogo_finde\.vscode\mcp.json** — _File missing_
 
 _No active workspace servers in mcp.json._
 

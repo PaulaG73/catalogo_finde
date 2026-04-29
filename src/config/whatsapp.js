@@ -47,6 +47,9 @@ function getShareBaseOrigin() {
 }
 
 const OG_PAGE_SUFFIX = '.html'
+const OG_CACHE_BUST_BY_SLUG = {
+  'tripack-rockstars': 'v2',
+}
 
 /**
  * Nombre de archivo en `public/`: `og-{id en minúsculas}.html` (Netlify/Linux distinguen mayúsculas; si no coincide, cae el SPA y WhatsApp muestra el og:image del index: logo).
@@ -57,17 +60,35 @@ function packOgPagePath(packId) {
   return `og-${id.toLowerCase()}${OG_PAGE_SUFFIX}`
 }
 
-/** Packs con página OG en la raíz del sitio: `public/og-{id}.html` (evita que `/* → index.html` sombra /share/ en Netlify). */
-const PACK_IDS_WITH_OG_PAGE = new Set([
-  'alchemysta',
-  'mujer-andina',
-  'rose',
-  'owm',
-  'algorta',
-  'rockStar',
-  'coleccionAlgorta',
-  'innovacion',
-])
+/** Slug de página OG por id de pack (actual y legacy). */
+const OG_SLUG_BY_PACK_ID = {
+  '1': 'alchemysta',
+  '2': 'mujer-andina',
+  '3': 'rose',
+  '4': 'owm',
+  '5': 'algorta',
+  /** Tripack N°6 (no usar slug genérico `rockstar`: evita caché OG / confusión con caja N°9 Rock Stars). */
+  '6': 'tripack-rockstars',
+  '7': 'sensaciones',
+  '11': 'coleccionalgorta',
+  '12': 'innovacion',
+  alchemysta: 'alchemysta',
+  'mujer-andina': 'mujer-andina',
+  rose: 'rose',
+  owm: 'owm',
+  algorta: 'algorta',
+  rockstar: 'tripack-rockstars',
+  'tripack-rockstars': 'tripack-rockstars',
+  sensaciones: 'sensaciones',
+  coleccionalgorta: 'coleccionalgorta',
+  innovacion: 'innovacion',
+}
+
+function ogSlugFromPackId(packId) {
+  const id = typeof packId === 'string' ? packId.trim().toLowerCase() : ''
+  if (!id) return ''
+  return OG_SLUG_BY_PACK_ID[id] || ''
+}
 
 /**
  * URL para vista previa en WhatsApp: HTML con og:image (no el .jpg directo).
@@ -75,9 +96,20 @@ const PACK_IDS_WITH_OG_PAGE = new Set([
 function resolvePackPreviewUrlForWhatsApp(packId, imagePath) {
   const base = getShareBaseOrigin()
   if (!base) return resolvePackImageUrlForWhatsApp(imagePath)
-  const id = typeof packId === 'string' ? packId.trim() : ''
-  if (id && /^[a-z0-9-]+$/i.test(id) && PACK_IDS_WITH_OG_PAGE.has(id)) {
-    return `${base}/${packOgPagePath(id)}`
+  // Pack N°6: usa imagen directa para evitar caché/preview errónea de páginas OG.
+  if (String(packId || '').trim() === '6') {
+    const img = resolvePackImageUrlForWhatsApp(imagePath)
+    if (/^https:\/\//i.test(img)) {
+      return `${img}${img.includes('?') ? '&' : '?'}v=2`
+    }
+    return img
+  }
+  const slug = ogSlugFromPackId(packId)
+  if (slug) {
+    const ver = OG_CACHE_BUST_BY_SLUG[slug]
+    const page = packOgPagePath(slug)
+    if (ver) return `${base}/${page}?v=${encodeURIComponent(ver)}`
+    return `${base}/${page}`
   }
   return resolvePackImageUrlForWhatsApp(imagePath)
 }
@@ -142,18 +174,22 @@ export function getWhatsAppFooterUrl() {
 }
 
 /**
- * Enlace wa.me: saludo corto, URL de vista previa del pack (og:image), precio.
- * Título y valle van en la tarjeta de vista previa de WhatsApp, no se repiten en el texto.
- * @param {{ price: string, image: string, packId?: string }} pack
+ * Enlace wa.me: pack específico + URL de vista previa (imagen/og) + precio.
+ * @param {{ title?: string, valle?: string, price?: string, image?: string, packId?: string }} pack
  */
 export function getWhatsAppPackUrl(pack) {
   const digits = digitsOnly()
   if (!digits) return '#'
 
+  const title = typeof pack?.title === 'string' ? pack.title.trim() : ''
+  const valle = typeof pack?.valle === 'string' ? pack.valle.trim() : ''
   const price = typeof pack?.price === 'string' ? pack.price.trim() : ''
   const previewUrl = resolvePackPreviewUrlForWhatsApp(pack?.packId, pack?.image || '')
 
-  const parts = ['Hola, quiero pedir este pack', '']
+  const parts = ['Hola, quiero pedir este pack:']
+  if (title) parts.push(title)
+  if (valle) parts.push(valle)
+  parts.push('')
 
   if (previewUrl && /^https:\/\//i.test(previewUrl)) {
     parts.push(previewUrl)
@@ -163,8 +199,8 @@ export function getWhatsAppPackUrl(pack) {
   const priceTxt = priceForWhatsAppMessage(price)
   if (priceTxt) parts.push(`Precio (CLP): ${priceTxt}`)
 
-  const text = `${parts.join('\n').trimEnd()}\n`
-  return `https://wa.me/${digits}?text=${encodeURIComponent(text)}`
+  const text = parts.join('\n').trimEnd()
+  return `https://api.whatsapp.com/send?phone=${digits}&text=${encodeURIComponent(text)}`
 }
 
 export function isWhatsAppConfigured() {

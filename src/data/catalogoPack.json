@@ -1,6 +1,6 @@
 [
     {
-      "id": "alchemysta",
+      "id": "1",
       "title": "N°1 Blancos/Alchemysta Wines",
       "valle": "Valle de Casablanca",
       "image": "/img/Blancos.jpg",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "id": "mujer-andina",
+      "id": "2",
       "title": "N°2 Espumantes/MujerAndina Wines",
       "valle": "Valles de Bío Bío, Itata y Cachapoal",
       "image": "/img/Espumantes.jpg",
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": "rose",
+      "id": "3",
       "title": "N°3 Rosados/Viñateros de Raíz y MujerAndina Wines",
       "valle": "Valle del Maipo",
       "agotado": true,
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "id": "owm",
+      "id": "4",
       "title": "N°4 Tintos/OWM Wines",
       "valle": "Valle de Colchagua",
       "image": "/img/Tintos.jpg",
@@ -48,21 +48,59 @@
       ]
     },
     {
-      "id": "algorta",
+      "id": "5",
       "title": "N°5 Tintos/Viña Algorta",
       "valle": "Valle de Rapel",
       "image": "/img/Tintos_SP.jpg",
       "price": "$32.000",
       "bloques": [
        
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Serie, Wild Carménère" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Serie, The Blend" }
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Serie, Wild Carménère" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Serie, The Blend" }
       ]
     },
     {
-      "id": "rockStar",
-      "title": "N°6 Caja Rock Stars",
+      "id": "6",
+      "title": "N°6 Tripack Rock Stars",
       "valle": "Valles Rapel, Cachapoal y Colchagua",
+      "image": "/img/tripack_Rock_Stars.jpg",
+      "price": "$23.000",
+      "bloques": [
+       
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Cabernet Sauvignon/Syrah, Alchemysta Wines" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Pillo de Panamá Cabernet Sauvignon/Syrah/Petit Verdot, OWM Wines" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Carménère" }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "N°7 Tripack Sensaciones",
+      "valle": "Valles de Cachapoal e Itata",
+      "image": "/img/tripck_sensaciones.jpg",
+      "price": "$39.000",
+      "bloques": [
+        { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay, Mujer Andina Wines" },
+        { "tipoCopa": "blanco", "cantidadBotellas": 1, "nombreVino": "Taii Velo, 100% Torontel, Valle de Itata, Peroli Family & Friends" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Mala Testa, Garnache/Syrah/Mourvedre, Valle Cachapoal Andes, by Algorta" }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "N°8 Tripack MaipOrigen",
+      "valle": "Valle del Maipo",
+      "image": "/img/tripack_Maiporigen.jpg",
+      "price": "$43.000",
+      "bloques": [
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Jardinero Mezcla Tinta, Valle del Maipo, Viñateros de Raíz" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "El Infaltable Carménère, Mujer Andina Wines" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Jardinero Touriga Nacional, Valle del Maipo, Viñateros de Raíz" }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "N°9 Caja Rock Stars",
+      "valle": "Valles Rapel, Cachapoal y Colchagua",
+      "agotado": true,
       "image": "/img/pack-rockstars.jpg",
       "price": "$45.000",
       "bloques": [
@@ -73,8 +111,19 @@
       ]
     },
     {
-      "id": "coleccionAlgorta",
-      "title": "N°7 Colección/Viña Algorta",
+      "id": "10",
+      "title": "N°10 Algorta Grand Reserve",
+      "valle": "Valle de Rapel",
+      "image": "/img/GR_Algorta.jpg",
+      "price": "$45.000",
+      "bloques": [
+        { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Carménère" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Cabernet Sauvignon" }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "N°11 Colección Algorta",
       "valle": "Valle de Rapel",
       "image": "/img/coleccion-algorta.jpg",
       "price": "$50.000",
@@ -83,13 +132,13 @@
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Cabernet Sauvignon" },
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Carménère" },
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Cabernet Sauvignon" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Serie, Wild Carménère" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemakers Serie, The Blend" }
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Serie, Wild Carménère" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Serie, The Blend" }
       ]
     },
     {
-      "id": "innovacion",
-      "title": "N°8 Caja Innovación",
+      "id": "12",
+      "title": "N°12 Caja Innovación",
       "valle": "Valles del Maipo, Cachapoal e Itata",
       "image": "/img/innovacion.jpg",
       "price": "$75.000",
