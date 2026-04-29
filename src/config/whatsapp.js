@@ -47,9 +47,6 @@ function getShareBaseOrigin() {
 }
 
 const OG_PAGE_SUFFIX = '.html'
-const OG_CACHE_BUST_BY_SLUG = {
-  'tripack-rockstars': 'v2',
-}
 
 /**
  * Nombre de archivo en `public/`: `og-{id en minúsculas}.html` (Netlify/Linux distinguen mayúsculas; si no coincide, cae el SPA y WhatsApp muestra el og:image del index: logo).
@@ -70,6 +67,8 @@ const OG_SLUG_BY_PACK_ID = {
   /** Tripack N°6 (no usar slug genérico `rockstar`: evita caché OG / confusión con caja N°9 Rock Stars). */
   '6': 'tripack-rockstars',
   '7': 'sensaciones',
+  '8': 'maiporigen',
+  '10': 'algorta-grand-reserve',
   '11': 'coleccionalgorta',
   '12': 'innovacion',
   alchemysta: 'alchemysta',
@@ -80,6 +79,8 @@ const OG_SLUG_BY_PACK_ID = {
   rockstar: 'tripack-rockstars',
   'tripack-rockstars': 'tripack-rockstars',
   sensaciones: 'sensaciones',
+  maiporigen: 'maiporigen',
+  'algorta-grand-reserve': 'algorta-grand-reserve',
   coleccionalgorta: 'coleccionalgorta',
   innovacion: 'innovacion',
 }
@@ -96,19 +97,9 @@ function ogSlugFromPackId(packId) {
 function resolvePackPreviewUrlForWhatsApp(packId, imagePath) {
   const base = getShareBaseOrigin()
   if (!base) return resolvePackImageUrlForWhatsApp(imagePath)
-  // Pack N°6: usa imagen directa para evitar caché/preview errónea de páginas OG.
-  if (String(packId || '').trim() === '6') {
-    const img = resolvePackImageUrlForWhatsApp(imagePath)
-    if (/^https:\/\//i.test(img)) {
-      return `${img}${img.includes('?') ? '&' : '?'}v=2`
-    }
-    return img
-  }
   const slug = ogSlugFromPackId(packId)
   if (slug) {
-    const ver = OG_CACHE_BUST_BY_SLUG[slug]
     const page = packOgPagePath(slug)
-    if (ver) return `${base}/${page}?v=${encodeURIComponent(ver)}`
     return `${base}/${page}`
   }
   return resolvePackImageUrlForWhatsApp(imagePath)
