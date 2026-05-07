@@ -165,7 +165,7 @@ export function getWhatsAppFooterUrl() {
 }
 
 /**
- * Enlace wa.me: pack específico + URL de vista previa (imagen/og) + precio.
+ * Enlace api.whatsapp.com: «¿Vamos con este pack?» + datos del pack + vista previa + precio.
  * @param {{ title?: string, valle?: string, price?: string, image?: string, packId?: string }} pack
  */
 export function getWhatsAppPackUrl(pack) {
@@ -177,7 +177,7 @@ export function getWhatsAppPackUrl(pack) {
   const price = typeof pack?.price === 'string' ? pack.price.trim() : ''
   const previewUrl = resolvePackPreviewUrlForWhatsApp(pack?.packId, pack?.image || '')
 
-  const parts = ['Hola, quiero pedir este pack:']
+  const parts = ['¿Vamos con este pack?']
   if (title) parts.push(title)
   if (valle) parts.push(valle)
   parts.push('')

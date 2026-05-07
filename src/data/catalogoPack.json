@@ -39,6 +39,7 @@
       "id": "4",
       "title": "N°4 Tintos/OWM Wines",
       "valle": "Valle de Colchagua",
+      "agotado": true,
       "image": "/img/Tintos.jpg",
       "price": "$25.000",
       "bloques": [
