@@ -15,6 +15,7 @@
       "id": "2",
       "title": "N°2 Espumantes/MujerAndina Wines",
       "valle": "Valles de Bío Bío, Itata y Cachapoal",
+      "agotado": true,
       "image": "/img/Espumantes.jpg",
       "price": "$25.000",
       "bloques": [
@@ -66,6 +67,8 @@
       "valle": "Valles Rapel, Cachapoal y Colchagua",
       "image": "/img/tripack_Rock_Stars.jpg",
       "price": "$23.000",
+      "ofertaEtiqueta": "Cyber oferta",
+      "priceOferta": "$21.500",
       "bloques": [
        
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Cabernet Sauvignon/Syrah, Alchemysta Wines" },
@@ -141,6 +144,7 @@
       "id": "12",
       "title": "N°12 Caja Innovación",
       "valle": "Valles del Maipo, Cachapoal e Itata",
+      "agotado": true,
       "image": "/img/innovacion.jpg",
       "price": "$75.000",
       "bloques": [

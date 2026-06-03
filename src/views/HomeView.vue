@@ -84,6 +84,8 @@
               :bloques="proyecto.bloques"
               :image="proyecto.image"
               :price="proyecto.price"
+              :oferta-etiqueta="proyecto.ofertaEtiqueta || ''"
+              :price-oferta="proyecto.priceOferta || ''"
               :agotado="Boolean(proyecto.agotado)"
             />
           </div>

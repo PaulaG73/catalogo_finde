@@ -166,7 +166,7 @@ export function getWhatsAppFooterUrl() {
 
 /**
  * Enlace api.whatsapp.com: «¿Vamos con este pack?» + datos del pack + vista previa + precio.
- * @param {{ title?: string, valle?: string, price?: string, image?: string, packId?: string }} pack
+ * @param {{ title?: string, valle?: string, price?: string, ofertaEtiqueta?: string, image?: string, packId?: string }} pack
  */
 export function getWhatsAppPackUrl(pack) {
   const digits = digitsOnly()
@@ -175,6 +175,8 @@ export function getWhatsAppPackUrl(pack) {
   const title = typeof pack?.title === 'string' ? pack.title.trim() : ''
   const valle = typeof pack?.valle === 'string' ? pack.valle.trim() : ''
   const price = typeof pack?.price === 'string' ? pack.price.trim() : ''
+  const ofertaEtiqueta =
+    typeof pack?.ofertaEtiqueta === 'string' ? pack.ofertaEtiqueta.trim() : ''
   const previewUrl = resolvePackPreviewUrlForWhatsApp(pack?.packId, pack?.image || '')
 
   const parts = ['¿Vamos con este pack?']
@@ -188,7 +190,13 @@ export function getWhatsAppPackUrl(pack) {
   }
 
   const priceTxt = priceForWhatsAppMessage(price)
-  if (priceTxt) parts.push(`Precio (CLP): ${priceTxt}`)
+  if (priceTxt) {
+    if (ofertaEtiqueta) {
+      parts.push(`${ofertaEtiqueta} (CLP): ${priceTxt}`)
+    } else {
+      parts.push(`Precio (CLP): ${priceTxt}`)
+    }
+  }
 
   const text = parts.join('\n').trimEnd()
   return `https://api.whatsapp.com/send?phone=${digits}&text=${encodeURIComponent(text)}`

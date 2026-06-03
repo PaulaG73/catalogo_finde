@@ -67,7 +67,18 @@
         </div>
         <hr class="card-divider flex-shrink-0">
         <div class="card-price-footer flex-shrink-0">
+          <div
+            v-if="priceOferta && !agotado"
+            class="card-price-oferta text-center"
+          >
+            <p class="card-price-oferta-label mb-0 fw-bold">{{ ofertaEtiqueta }}</p>
+            <p class="card-price card-price--oferta mb-0 fw-bold text-success">{{ priceOferta }}</p>
+            <p class="card-price card-price--regular mb-0 text-secondary text-decoration-line-through">
+              {{ price }}
+            </p>
+          </div>
           <p
+            v-else
             class="card-price mb-0 fw-bold text-center"
             :class="agotado ? 'text-secondary text-decoration-line-through' : 'text-success'"
           >
@@ -156,18 +167,31 @@
       type: String,
       required: true,
     },
+    ofertaEtiqueta: {
+      type: String,
+      default: '',
+    },
+    priceOferta: {
+      type: String,
+      default: '',
+    },
     agotado: {
       type: Boolean,
       default: false,
     },
   })
 
+  const precioWhatsApp = computed(() =>
+    props.priceOferta?.trim() ? props.priceOferta : props.price,
+  )
+
   const whatsappUrl = computed(() =>
     getWhatsAppPackUrl({
       packId: props.packId,
       title: props.title,
       valle: props.valle,
-      price: props.price,
+      price: precioWhatsApp.value,
+      ofertaEtiqueta: props.priceOferta?.trim() ? props.ofertaEtiqueta?.trim() : '',
       image: props.image,
     }),
   )
@@ -433,6 +457,25 @@
     box-sizing: border-box;
     padding-top: 0.25rem;
     padding-bottom: 0.1rem;
+  }
+
+  .card-price-oferta-label {
+    font-size: clamp(0.72rem, 1.85vw, 0.82rem);
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--vin-acento, #6b2d3e);
+  }
+
+  .card-price--oferta {
+    font-size: clamp(0.95rem, 2.35vw, 1.12rem);
+  }
+
+  .card-price--regular {
+    font-size: clamp(0.78rem, 1.9vw, 0.88rem);
+    line-height: 1.15;
+    font-weight: 600;
+    opacity: 0.85;
   }
   
   .card-price {
