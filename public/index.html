@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <meta name="description" content="Vinóloga — vinos con cuento. Catálogo por valles; pedidos y consultas por WhatsApp.">
+    <meta name="description" content="<%= htmlWebpackPlugin.options.ogDescription %>">
     <% if (htmlWebpackPlugin.options.ogPageUrl) { %>
     <meta property="og:site_name" content="Vinóloga">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_CL">
     <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>">
-    <meta property="og:description" content="Tintos, blancos, rosados y espumantes. Conoce la oferta y haz tu pedido por WhatsApp.">
+    <meta property="og:description" content="<%= htmlWebpackPlugin.options.ogDescription %>">
     <meta property="og:url" content="<%= htmlWebpackPlugin.options.ogPageUrl %>">
     <meta property="og:image" content="<%= htmlWebpackPlugin.options.ogImageUrl %>">
     <meta property="og:image:secure_url" content="<%= htmlWebpackPlugin.options.ogImageUrl %>">
@@ -25,7 +25,7 @@
     <meta property="og:image:alt" content="El mundo de Vinóloga — valle del Douro">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>">
-    <meta name="twitter:description" content="Vinos por valle. Pedidos por WhatsApp.">
+    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.ogDescription %>">
     <meta name="twitter:image" content="<%= htmlWebpackPlugin.options.ogImageUrl %>">
     <% } %>
   </head>

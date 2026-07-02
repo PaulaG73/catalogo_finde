@@ -5,6 +5,9 @@ function publicSiteOrigin() {
   return (process.env.VUE_APP_PUBLIC_SITE_URL || '').replace(/\/+$/, '')
 }
 
+const OG_DESCRIPTION =
+  'Es tiempo de APRENDER, es tiempo de COMPARTIR, es tiempo de DISFRUTAR. Bienvenido al Mundo de Vinóloga...el mundo de los "VINOS CON CUENTO"... Revisa el catálogo aquí.'
+
 module.exports = defineConfig({
   transpileDependencies: true,
   publicPath: '/',
@@ -31,6 +34,7 @@ module.exports = defineConfig({
       opts.ogImageUrl = origin ? `${origin}/img/douro.jpg` : ''
       opts.ogImageWidth = 729
       opts.ogImageHeight = 1200
+      opts.ogDescription = OG_DESCRIPTION
       return args
     })
   },
