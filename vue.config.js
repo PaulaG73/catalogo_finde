@@ -6,7 +6,7 @@ function publicSiteOrigin() {
 }
 
 const OG_DESCRIPTION =
-  'Es tiempo de APRENDER, es tiempo de COMPARTIR, es tiempo de DISFRUTAR. Bienvenido al Mundo de Vinóloga...el mundo de los "VINOS CON CUENTO"... Revisa el catálogo aquí.'
+  'Es tiempo de APRENDER, es tiempo de COMPARTIR, es tiempo de DISFRUTAR. Bienvenido al Mundo de Vinóloga...el mundo de los &quot;VINOS CON CUENTO&quot;... Revisa el catálogo aquí.'
 
 module.exports = defineConfig({
   transpileDependencies: true,
