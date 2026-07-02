@@ -9,14 +9,11 @@
         class="sobre-mi-foto-shell"
         :class="{ 'sobre-mi-foto-shell--in-view': sobreMiFotoInView }"
       >
-        <div class="sobre-mi-foto-marco" aria-hidden="true" />
         <div class="sobre-mi-foto">
           <img
             class="sobre-mi-foto__img"
             :src="sobreMiFotoSrc"
-            alt="Logo Vinóloga"
-            width="400"
-            height="400"
+            alt="Ilustración en el valle del Douro"
             loading="lazy"
             decoding="async"
           >
@@ -134,8 +131,8 @@ import FooterComponent from '../components/FooterComponent.vue'
 import CardComponent from '../components/CardComponent.vue'
 import catalogoPacks from '../data/catalogoPack.json'
 
-/** Logo en `public/img/logo-vinologa.png` */
-const sobreMiFotoSrc = '/img/logo-vinologa.png'
+/** Foto en `public/img/douro.PNG` */
+const sobreMiFotoSrc = '/img/douro.PNG'
 
 /** Dos series iguales para bucle de scroll sin salto visible */
 const proyectosLoop = computed(() => [...catalogoPacks, ...catalogoPacks])
@@ -482,10 +479,9 @@ onUnmounted(() => {
 }
 
 #sobre-mi .sobre-mi-foto-shell {
-  --foto-tam: 184px;
+  --foto-ancho: min(100%, 13.5rem);
   flex: 0 0 auto;
-  width: var(--foto-tam);
-  height: var(--foto-tam);
+  width: var(--foto-ancho);
   margin-inline: auto;
   position: relative;
   opacity: 0;
@@ -500,45 +496,20 @@ onUnmounted(() => {
   transform: scale(1) translateY(0);
 }
 
-.sobre-mi-foto-marco {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  z-index: 0;
-  background: conic-gradient(
-    from 0deg,
-    #c9a227,
-    #3ddc84,
-    #4dabf7,
-    #9775fa,
-    #f783ac,
-    rgba(var(--vin-acento-rgb), 0.95),
-    #c9a227
-  );
-  animation: sobreMiMarcoGiro 12s linear infinite;
-}
-
-@keyframes sobreMiMarcoGiro {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 #sobre-mi .sobre-mi-foto {
-  position: absolute;
-  inset: 3px;
-  z-index: 1;
-  border-radius: 50%;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 1rem;
   overflow: hidden;
   background-color: var(--vin-negro-marca);
   box-shadow:
-    0 0 0 2px rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.12),
     0 12px 36px rgba(0, 0, 0, 0.45);
 }
 
 @media (min-width: 768px) {
   #sobre-mi .sobre-mi-foto-shell {
-    --foto-tam: 216px;
+    --foto-ancho: 12.5rem;
     margin-inline: 0;
   }
 }
@@ -549,8 +520,6 @@ onUnmounted(() => {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -558,15 +527,6 @@ onUnmounted(() => {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .sobre-mi-foto-marco {
-    animation: none;
-    background: linear-gradient(
-      145deg,
-      rgba(var(--vin-acento-rgb), 0.55),
-      rgba(255, 255, 255, 0.12)
-    );
   }
 }
 

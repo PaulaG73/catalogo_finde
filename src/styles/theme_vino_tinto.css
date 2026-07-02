@@ -48,66 +48,6 @@
   background-color: var(--vin-negro-marca) !important;
 }
 
-/* Tooltip junto al botón WhatsApp (footer y tarjetas): un solo estilo */
-.footer-wa-tooltip,
-.card-wa-tooltip {
-  position: absolute;
-  left: calc(100% + 10px);
-  top: 50%;
-  translate: -6px -50%;
-  padding: 0.4rem 0.75rem;
-  background: #fff;
-  color: var(--vin-profundo, #3a0f18);
-  font-family: 'Nunito', system-ui, sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  line-height: 1.25;
-  text-align: center;
-  white-space: nowrap;
-  border-radius: 0.4rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 20;
-  transition:
-    opacity 0.2s ease,
-    visibility 0.2s ease,
-    translate 0.2s ease;
-}
-
-.footer-wa-tooltip::after,
-.card-wa-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  translate: 2px -50%;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 7px 8px 7px 0;
-  border-color: transparent #fff transparent transparent;
-  filter: drop-shadow(-2px 0 3px rgba(0, 0, 0, 0.12));
-}
-
-.footer-wa-wrap:hover .footer-wa-tooltip,
-.footer-wa-wrap:focus-within .footer-wa-tooltip,
-.card-wa-wrap:hover .card-wa-tooltip,
-.card-wa-wrap:focus-within .card-wa-tooltip {
-  opacity: 1;
-  visibility: visible;
-  translate: 0 -50%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .footer-wa-tooltip,
-  .card-wa-tooltip {
-    transition: none;
-    translate: 0 -50%;
-  }
-}
-
 .btn-whatsapp {
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--wa-green);
@@ -123,6 +63,57 @@
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: var(--wa-green);
   --bs-btn-disabled-border-color: var(--wa-green);
+}
+
+/* Botón pill WhatsApp (tarjetas y footer) */
+.wa-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.48rem 1rem 0.48rem 0.85rem;
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  white-space: nowrap;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.45);
+  border-radius: 0.4rem;
+  text-decoration: none;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.wa-pill-icon {
+  flex-shrink: 0;
+  width: 1.05rem;
+  height: 1.05rem;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+}
+
+.wa-pill-label {
+  flex-shrink: 0;
+  font-size: clamp(0.78rem, 2vw, 0.9rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.footer-wa-pill.wa-pill-btn {
+  max-width: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .footer-wa-pill.wa-pill-btn {
+    white-space: normal;
+    text-align: left;
+    max-width: min(100%, 14.5rem);
+  }
 }
 
 .btn-success {

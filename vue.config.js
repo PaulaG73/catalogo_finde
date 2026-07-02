@@ -28,7 +28,7 @@ module.exports = defineConfig({
       const origin = publicSiteOrigin()
       const opts = args[0]
       opts.ogPageUrl = origin ? `${origin}/` : ''
-      opts.ogImageUrl = origin ? `${origin}/img/logo-vinologa.png` : ''
+      opts.ogImageUrl = origin ? `${origin}/img/douro.PNG` : ''
       return args
     })
   },

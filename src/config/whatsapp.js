@@ -49,7 +49,7 @@ function getShareBaseOrigin() {
 const OG_PAGE_SUFFIX = '.html'
 
 /**
- * Nombre de archivo en `public/`: `og-{id en minúsculas}.html` (Netlify/Linux distinguen mayúsculas; si no coincide, cae el SPA y WhatsApp muestra el og:image del index: logo).
+ * Nombre de archivo en `public/`: `og-{id en minúsculas}.html` (Netlify/Linux distinguen mayúsculas; si no coincide, cae el SPA y WhatsApp muestra el og:image del index: douro).
  */
 function packOgPagePath(packId) {
   const id = typeof packId === 'string' ? packId.trim() : ''
