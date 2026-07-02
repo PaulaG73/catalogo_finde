@@ -3,7 +3,7 @@
 
   <section id="sobre-mi" class="home-section home-section--ink py-3 py-md-4">
     <h3 class="mb-2 mb-md-3 fw-bold">El mundo de Vinóloga</h3>
-    <div class="container sobre-mi d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+    <div class="container sobre-mi d-flex flex-column flex-md-row-reverse align-items-center justify-content-center gap-3 gap-md-4">
       <div
         ref="sobreMiFotoShellRef"
         class="sobre-mi-foto-shell"
@@ -534,10 +534,21 @@ onUnmounted(() => {
   flex: 0 1 auto;
   min-width: 0;
   max-width: min(100%, 40rem);
-  text-align: justify;
+  text-align: center;
   line-height: 1.6;
   font-size: clamp(0.85rem, 2.2vw, 0.95rem);
   color: var(--vin-texto-claro);
+}
+
+@media (min-width: 768px) {
+  #sobre-mi .sobre-mi {
+    justify-content: center;
+  }
+
+  #sobre-mi .sobre-mi-texto {
+    flex: 1 1 0;
+    max-width: 28rem;
+  }
 }
 
 .sobre-mi-vino-mayus {

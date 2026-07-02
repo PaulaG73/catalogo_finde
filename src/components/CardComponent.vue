@@ -297,12 +297,12 @@
     translate: none;
   }
 
-  .card-pack-img--agotado {
+  .card-pack-price-overlay {
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 2;
+    z-index: 3;
     padding: 0.65rem 0.75rem 0.7rem;
     text-align: center;
     background: linear-gradient(

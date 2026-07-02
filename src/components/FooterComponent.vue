@@ -30,8 +30,8 @@
         </div>
   
         <!-- Iconos sociales + copyright (centro) -->
-        <div class="flex-grow-1 d-flex flex-column align-items-center gap-2">
-          <div class="d-flex align-items-center gap-3">
+        <div class="flex-grow-1 d-flex flex-column align-items-center gap-2 footer-center-col min-w-0">
+          <div class="d-flex align-items-center justify-content-center footer-wa-row w-100 min-w-0">
   
             <!-- WhatsApp -->
             <a
@@ -203,6 +203,43 @@
   .footer-side {
     width: 2rem;
     flex-shrink: 0;
+  }
+
+  .footer-center-col {
+    min-width: 0;
+  }
+
+  .footer-wa-row {
+    min-width: 0;
+  }
+
+  @media (max-width: 767.98px) {
+    .footer-center-col {
+      width: 100%;
+      flex-basis: 100%;
+    }
+
+    .footer-wa-pill.footer-wa-pill {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      justify-content: center;
+      padding: 0.55rem 0.65rem;
+      gap: 0.35rem 0.4rem;
+      white-space: normal;
+      text-align: center;
+    }
+
+    .footer-wa-pill .wa-pill-label {
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: 100%;
+      white-space: normal;
+      overflow-wrap: break-word;
+      line-height: 1.3;
+      text-align: center;
+    }
   }
   
   @media (max-width: 400px) {

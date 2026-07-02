@@ -106,14 +106,7 @@
 
 .footer-wa-pill.wa-pill-btn {
   max-width: 100%;
-}
-
-@media (max-width: 575.98px) {
-  .footer-wa-pill.wa-pill-btn {
-    white-space: normal;
-    text-align: left;
-    max-width: min(100%, 14.5rem);
-  }
+  box-sizing: border-box;
 }
 
 .btn-success {
