@@ -44,6 +44,9 @@ async function main() {
   if (col) await writeOptimized(col, 'coleccion-algorta.jpg')
   /* En Windows no escribir "rockstars.jpg" si existe "rockStars.jpg" (mismo path). */
   if (rock) await writeOptimized(rock, 'pack-rockstars.jpg')
+  if (fs.existsSync(path.join(imgDir, 'douro.PNG'))) {
+    await writeOptimized('douro.PNG', 'douro.jpg')
+  }
 }
 
 main().catch((e) => {
