@@ -64,13 +64,14 @@ const OG_SLUG_BY_PACK_ID = {
   '3': 'rose',
   '4': 'owm',
   '5': 'algorta',
-  /** Tripack N°6 (no usar slug genérico `rockstar`: evita caché OG / confusión con caja N°9 Rock Stars). */
+  /** Tripack N°6 (no usar slug genérico `rockstar`: evita caché OG / confusión con caja N°10 Rock Stars). */
   '6': 'tripack-rockstars',
-  '7': 'sensaciones',
-  '8': 'maiporigen',
-  '10': 'algorta-grand-reserve',
-  '11': 'coleccionalgorta',
-  '12': 'innovacion',
+  '7': 'omg',
+  '8': 'sensaciones',
+  '9': 'maiporigen',
+  '11': 'algorta-grand-reserve',
+  '12': 'coleccionalgorta',
+  '13': 'innovacion',
   alchemysta: 'alchemysta',
   'mujer-andina': 'mujer-andina',
   rose: 'rose',
@@ -78,6 +79,7 @@ const OG_SLUG_BY_PACK_ID = {
   algorta: 'algorta',
   rockstar: 'tripack-rockstars',
   'tripack-rockstars': 'tripack-rockstars',
+  omg: 'omg',
   sensaciones: 'sensaciones',
   maiporigen: 'maiporigen',
   'algorta-grand-reserve': 'algorta-grand-reserve',
@@ -165,7 +167,7 @@ export function getWhatsAppFooterUrl() {
 }
 
 /**
- * Enlace api.whatsapp.com: «¿Vamos con este pack?» + datos del pack + vista previa + precio.
+ * Enlace api.whatsapp.com: saludo + datos del pack + vista previa + precio.
  * @param {{ title?: string, valle?: string, price?: string, ofertaEtiqueta?: string, image?: string, packId?: string }} pack
  */
 export function getWhatsAppPackUrl(pack) {
@@ -179,7 +181,7 @@ export function getWhatsAppPackUrl(pack) {
     typeof pack?.ofertaEtiqueta === 'string' ? pack.ofertaEtiqueta.trim() : ''
   const previewUrl = resolvePackPreviewUrlForWhatsApp(pack?.packId, pack?.image || '')
 
-  const parts = ['¿Vamos con este pack?']
+  const parts = ['Hola Vinóloga, quiero este pack']
   if (title) parts.push(title)
   if (valle) parts.push(valle)
   parts.push('')

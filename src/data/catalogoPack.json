@@ -3,6 +3,7 @@
       "id": "1",
       "title": "N°1 Blancos/Alchemysta Wines",
       "valle": "Valle de Casablanca",
+      "agotado": true,
       "image": "/img/Blancos.jpg",
       "price": "$15.000",
       "bloques": [
@@ -15,7 +16,6 @@
       "id": "2",
       "title": "N°2 Espumantes/MujerAndina Wines",
       "valle": "Valles de Bío Bío, Itata y Cachapoal",
-      "agotado": true,
       "image": "/img/Espumantes.jpg",
       "price": "$25.000",
       "bloques": [
@@ -27,7 +27,6 @@
       "id": "3",
       "title": "N°3 Rosados/Viñateros de Raíz y MujerAndina Wines",
       "valle": "Valle del Maipo",
-      "agotado": true,
       "image": "/img/Rosados.jpg",
       "price": "$25.000",
       "bloques": [
@@ -38,14 +37,13 @@
     },
     {
       "id": "4",
-      "title": "N°4 Tintos/OWM Wines",
+      "title": "N°4 Ensamblajes Tintos/OWM Wines",
       "valle": "Valle de Colchagua",
-      "agotado": true,
       "image": "/img/Tintos.jpg",
       "price": "$25.000",
       "bloques": [
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made, Ensamblaje" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made Black, Ensamblaje" }
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made, Ensamblaje 2018" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made Black, Ensamblaje 2021" }
 
       ]
     },
@@ -65,6 +63,7 @@
       "id": "6",
       "title": "N°6 Tripack Rock Stars",
       "valle": "Valles Rapel, Cachapoal y Colchagua",
+      "agotado": true,
       "image": "/img/tripack_Rock_Stars.jpg",
       "price": "$23.000",
       "ofertaEtiqueta": "Cyber oferta",
@@ -78,7 +77,19 @@
     },
     {
       "id": "7",
-      "title": "N°7 Tripack Sensaciones",
+      "title": "N°7 Tripack OMG!/OWM Wines",
+      "valle": "Valle de Colchagua",
+      "image": "/img/OMG!.jpg",
+      "price": "$35.000",
+      "bloques": [
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made, Ensamblaje 2018" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made Black, Ensamblaje 2021" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Divino Petit, Petite Sirah/Petit Verdot" }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "N°8 Tripack Sensaciones",
       "valle": "Valles de Cachapoal e Itata",
       "image": "/img/tripck_sensaciones.jpg",
       "price": "$39.000",
@@ -89,8 +100,8 @@
       ]
     },
     {
-      "id": "8",
-      "title": "N°8 Tripack MaipOrigen",
+      "id": "9",
+      "title": "N°9 Tripack MaipOrigen",
       "valle": "Valle del Maipo",
       "image": "/img/tripack_Maiporigen.jpg",
       "price": "$43.000",
@@ -101,8 +112,8 @@
       ]
     },
     {
-      "id": "9",
-      "title": "N°9 Caja Rock Stars",
+      "id": "10",
+      "title": "N°10 Caja Rock Stars",
       "valle": "Valles Rapel, Cachapoal y Colchagua",
       "agotado": true,
       "image": "/img/pack-rockstars.jpg",
@@ -115,8 +126,8 @@
       ]
     },
     {
-      "id": "10",
-      "title": "N°10 Algorta Grand Reserve",
+      "id": "11",
+      "title": "N°11 Caja Algorta Grand Reserve",
       "valle": "Valle de Rapel",
       "image": "/img/GR_Algorta.jpg",
       "price": "$40.000",
@@ -126,25 +137,23 @@
       ]
     },
     {
-      "id": "11",
-      "title": "N°11 Colección Algorta",
+      "id": "12",
+      "title": "N°12 Caja Colección Algorta",
       "valle": "Valle de Rapel",
       "image": "/img/coleccion-algorta.jpg",
       "price": "$50.000",
       "bloques": [
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Carménère" },
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Cabernet Sauvignon" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Carménère" },
-        { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Family Reserve, Cabernet Sauvignon" },
+        { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Family Reserve, Cabernet Sauvignon" },
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Series, Wild Carménère" },
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Series, The Blend" }
       ]
     },
     {
-      "id": "12",
-      "title": "N°12 Caja Innovación",
+      "id": "13",
+      "title": "N°13 Caja Innovación",
       "valle": "Valles del Maipo, Cachapoal e Itata",
-      "agotado": true,
       "image": "/img/innovacion.jpg",
       "price": "$75.000",
       "bloques": [
