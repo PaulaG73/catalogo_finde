@@ -16,6 +16,7 @@
       "id": "2",
       "title": "N°2 Espumantes/MujerAndina Wines",
       "valle": "Valles de Bío Bío, Itata y Cachapoal",
+      "agotado": true,
       "image": "/img/Espumantes.jpg",
       "price": "$25.000",
       "bloques": [
