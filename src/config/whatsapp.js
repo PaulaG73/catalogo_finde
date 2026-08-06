@@ -167,6 +167,16 @@ export function getWhatsAppFooterUrl() {
 }
 
 /**
+ * WhatsApp desde «Habla conmigo» (Sobre mí): saludo de Vinóloga en el borrador del chat.
+ */
+export function getWhatsAppHablaConmigoUrl() {
+  const digits = digitsOnly()
+  if (!digits) return '#'
+  const text = 'Hola, soy Vinóloga, en qué te puedo ayudar?'
+  return `https://api.whatsapp.com/send?phone=${digits}&text=${encodeURIComponent(text)}`
+}
+
+/**
  * Enlace api.whatsapp.com: saludo + datos del pack + vista previa + precio.
  * @param {{ title?: string, valle?: string, price?: string, ofertaEtiqueta?: string, image?: string, packId?: string }} pack
  */
