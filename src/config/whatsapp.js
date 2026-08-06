@@ -172,7 +172,7 @@ export function getWhatsAppFooterUrl() {
 export function getWhatsAppHablaConmigoUrl() {
   const digits = digitsOnly()
   if (!digits) return '#'
-  const text = 'Hola, soy Vinóloga, en qué te puedo ayudar?'
+  const text = 'Hola Vinóloga, te hablo desde tu catálogo...'
   return `https://api.whatsapp.com/send?phone=${digits}&text=${encodeURIComponent(text)}`
 }
 
