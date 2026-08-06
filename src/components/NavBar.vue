@@ -3,7 +3,7 @@
       <nav id="navbar-principal" class="navbar navbar-expand-lg navbar-dark bg-vin-negro border-bottom py-2 py-md-4 nav-vino">
         <div class="container-fluid">
           <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-            <span class="navbar-brand-text">Packs para el finde!</span>
+            <span class="navbar-brand-text">Catálogo de vinos y packs</span>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

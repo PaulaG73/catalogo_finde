@@ -3,7 +3,7 @@
 
   <section id="sobre-mi" class="home-section home-section--ink py-3 py-md-4">
     <h3 class="mb-2 mb-md-3 fw-bold">El mundo de Vinóloga</h3>
-    <div class="container sobre-mi d-flex flex-column flex-md-row-reverse align-items-center justify-content-center gap-3 gap-md-4">
+    <div class="container sobre-mi d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-4">
       <div
         ref="sobreMiFotoShellRef"
         class="sobre-mi-foto-shell"
@@ -13,7 +13,7 @@
           <img
             class="sobre-mi-foto__img"
             :src="sobreMiFotoSrc"
-            alt="Ilustración en el valle del Douro"
+            alt="Vinóloga"
             loading="lazy"
             decoding="async"
           >
@@ -131,8 +131,8 @@ import FooterComponent from '../components/FooterComponent.vue'
 import CardComponent from '../components/CardComponent.vue'
 import catalogoPacks from '../data/catalogoPack.json'
 
-/** Foto en `public/img/douro.PNG` */
-const sobreMiFotoSrc = '/img/douro.PNG'
+/** Foto en `public/img/Vinóloga_IA.jpg` */
+const sobreMiFotoSrc = '/img/Vinóloga_IA.jpg'
 
 /** Dos series iguales para bucle de scroll sin salto visible */
 const proyectosLoop = computed(() => [...catalogoPacks, ...catalogoPacks])

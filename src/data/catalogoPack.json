@@ -80,6 +80,7 @@
       "id": "7",
       "title": "N°7 Tripack OMG!/OWM Wines",
       "valle": "Valle de Colchagua",
+      "agotado": true,
       "image": "/img/OMG!.jpg",
       "price": "$35.000",
       "bloques": [
@@ -92,6 +93,7 @@
       "id": "8",
       "title": "N°8 Tripack Sensaciones",
       "valle": "Valles de Cachapoal e Itata",
+      "agotado": true,
       "image": "/img/tripck_sensaciones.jpg",
       "price": "$39.000",
       "bloques": [
@@ -104,6 +106,7 @@
       "id": "9",
       "title": "N°9 Tripack MaipOrigen",
       "valle": "Valle del Maipo",
+      "agotado": true,
       "image": "/img/tripack_Maiporigen.jpg",
       "price": "$43.000",
       "bloques": [
@@ -155,6 +158,7 @@
       "id": "13",
       "title": "N°13 Caja Innovación",
       "valle": "Valles del Maipo, Cachapoal e Itata",
+      "agotado": true,
       "image": "/img/innovacion.jpg",
       "price": "$75.000",
       "bloques": [
