@@ -39,7 +39,6 @@
       "id": "4",
       "title": "N°4 Ensamblajes Tintos/OWM Wines",
       "valle": "Valle de Colchagua",
-      "agotado": true,
       "image": "/img/Tintos.jpg",
       "price": "$25.000",
       "bloques": [
@@ -64,11 +63,8 @@
       "id": "6",
       "title": "N°6 Tripack Rock Stars",
       "valle": "Valles Rapel, Cachapoal y Colchagua",
-      "agotado": true,
       "image": "/img/tripack_Rock_Stars.jpg",
       "price": "$23.000",
-      "ofertaEtiqueta": "Cyber oferta",
-      "priceOferta": "$21.500",
       "bloques": [
        
         { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Cabernet Sauvignon/Syrah, Alchemysta Wines" },
@@ -80,7 +76,6 @@
       "id": "7",
       "title": "N°7 Tripack OMG!/OWM Wines",
       "valle": "Valle de Colchagua",
-      "agotado": true,
       "image": "/img/OMG!.jpg",
       "price": "$35.000",
       "bloques": [
@@ -117,7 +112,6 @@
       "id": "10",
       "title": "N°10 Caja Rock Stars",
       "valle": "Valles Rapel, Cachapoal y Colchagua",
-      "agotado": true,
       "image": "/img/pack-rockstars.jpg",
       "price": "$45.000",
       "bloques": [
