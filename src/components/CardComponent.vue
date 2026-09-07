@@ -1,10 +1,18 @@
 <template>
     <div
       class="card card-pack h-100 d-flex flex-column shadow-sm"
-      :class="agotado ? 'card-pack--agotado border-secondary' : 'border-success'"
+      :class="{
+        'card-pack--agotado border-secondary': agotado,
+        'card-pack--proximamente border-secondary': proximamente && !agotado,
+        'border-success': !agotado && !proximamente,
+      }"
     >
       <div class="card-img-wrap card-img-wrap--pack flex-shrink-0">
         <span v-if="agotado" class="card-pack-img-badge card-pack-agotado-badge">Agotado</span>
+        <span
+          v-else-if="proximamente"
+          class="card-pack-img-badge card-pack-proximamente-badge"
+        >Próximamente</span>
         <a
           v-else
           class="btn btn-whatsapp card-pack-img-badge card-pack-wa-btn wa-pill-btn shadow-sm"
@@ -36,8 +44,11 @@
         <img
           :src="image"
           class="card-img-top"
-          :class="{ 'card-pack-img--agotado': agotado }"
-          :alt="`${title}. ${valle}${agotado ? ' (agotado)' : ''}`"
+          :class="{
+            'card-pack-img--agotado': agotado,
+            'card-pack-img--proximamente': proximamente && !agotado,
+          }"
+          :alt="`${title}. ${valle}${agotado ? ' (agotado)' : proximamente ? ' (próximamente)' : ''}`"
           loading="lazy"
         >
         <div
@@ -177,6 +188,10 @@
       type: Boolean,
       default: false,
     },
+    proximamente: {
+      type: Boolean,
+      default: false,
+    },
   })
 
   const precioWhatsApp = computed(() =>
@@ -292,6 +307,20 @@
     pointer-events: none;
   }
 
+  .card-pack-proximamente-badge {
+    left: 50%;
+    translate: -50% 0;
+    padding: 0.42rem 0.95rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #f7efe3;
+    background: linear-gradient(145deg, #7a2f45, #4a1c2c);
+    border: 1px solid rgba(245, 217, 168, 0.45);
+    pointer-events: none;
+  }
+
   .card-pack-wa-btn {
     left: 0.55rem;
     translate: none;
@@ -345,9 +374,16 @@
     filter: grayscale(1) brightness(0.9);
   }
 
+  .card-pack-img--proximamente {
+    filter: brightness(0.92) saturate(0.92);
+  }
+
   .card-pack--agotado .card-title,
   .card-pack--agotado .card-valle,
-  .card-pack--agotado .card-bloque {
+  .card-pack--agotado .card-bloque,
+  .card-pack--proximamente .card-title,
+  .card-pack--proximamente .card-valle,
+  .card-pack--proximamente .card-bloque {
     opacity: 0.88;
   }
   

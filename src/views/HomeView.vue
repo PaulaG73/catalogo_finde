@@ -106,6 +106,7 @@
               :oferta-etiqueta="proyecto.ofertaEtiqueta || ''"
               :price-oferta="proyecto.priceOferta || ''"
               :agotado="Boolean(proyecto.agotado)"
+              :proximamente="Boolean(proyecto.proximamente)"
             />
           </div>
         </div>

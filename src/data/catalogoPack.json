@@ -72,6 +72,8 @@
     "valle": "Valles Rapel, Cachapoal y Colchagua",
     "image": "/img/tripack_Rock_Stars.jpg",
     "price": "$23.000",
+    "ofertaEtiqueta": "Oferta 18 septiembre",
+    "priceOferta": "$21.000",
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Cabernet Sauvignon/Syrah, Alchemysta Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Pillo de Panamá Cabernet Sauvignon/Syrah/Petit Verdot, OWM Wines" },
@@ -84,6 +86,8 @@
     "valle": "Valle de Colchagua",
     "image": "/img/OMG!.jpg",
     "price": "$35.000",
+    "ofertaEtiqueta": "Oferta 18 septiembre",
+    "priceOferta": "$30.000",
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made, Ensamblaje 2018" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made Black, Ensamblaje 2021" },
@@ -142,6 +146,7 @@
     "id": "13",
     "title": "N°13 Tripack Grand Levita/MujerAndina Wines",
     "valle": "Valles Maipo y Colchagua",
+    "proximamente": true,
     "image": "/img/tripack_grand_levita.jpg",
     "price": "$69.000",
     "bloques": [
@@ -156,6 +161,8 @@
     "valle": "Valle de Rapel",
     "image": "/img/GR_Algorta.jpg",
     "price": "$40.000",
+    "ofertaEtiqueta": "Oferta 18 septiembre",
+    "priceOferta": "$32.990",
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Carménère" },
       { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Cabernet Sauvignon" }
@@ -167,6 +174,8 @@
     "valle": "Valles Rapel, Cachapoal y Colchagua",
     "image": "/img/pack-rockstars.jpg",
     "price": "$45.000",
+    "ofertaEtiqueta": "Oferta 18 septiembre",
+    "priceOferta": "$36.000",
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Parróne Cabernet Sauvignon/Syrah, Alchemysta Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Pillo de Panamá Cabernet Sauvignon/Syrah/Petit Verdot, OWM Wines" },
@@ -178,7 +187,7 @@
     "title": "N°16 Caja Colección Algorta",
     "valle": "Valle de Rapel",
     "image": "/img/coleccion-algorta.jpg",
-    "price": "$50.000",
+    "price": "$55.000",
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Carménère" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Cabernet Sauvignon" },
