@@ -57,7 +57,7 @@
   },
   {
     "id": "6",
-    "title": "N°6 Tintos/Viña Algorta",
+    "title": "N°6 Winemaker's Tintos/Viña Algorta",
     "valle": "Valle de Rapel",
     "image": "/img/Tintos_SP.jpg",
     "price": "$32.000",
@@ -92,7 +92,7 @@
   },
   {
     "id": "9",
-    "title": "N°9 Tripack Sensaciones",
+    "title": "N°9 Sensaciones",
     "valle": "Valles de Cachapoal e Itata",
     "image": "/img/tripck_sensaciones.jpg",
     "price": "$39.000",
@@ -116,7 +116,19 @@
   },
   {
     "id": "11",
-    "title": "N°11 Tripack Infaltables New/Mujer Andina Wines",
+    "title": "N°11 Tripack Espumantes/MujerAndina Wines",
+    "valle": "Valles Maipo y Colchagua",
+    "image": "/img/tripack_espumantes_maw.jpg",
+    "price": "$43.000",
+    "bloques": [
+      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay" },
+      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Ai! Brut, Chardonnay/Pinot Noir" },
+      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Grand Levita Brut Rosé, Syrah/Chardonnay" }
+    ]
+  },
+  {
+    "id": "12",
+    "title": "N°12 Infaltables New/Mujer Andina Wines",
     "valle": "Valles del Maipo y Colchagua",
     "image": "/img/tripack_infaltables_new.jpg",
     "price": "$55.000",
@@ -127,8 +139,31 @@
     ]
   },
   {
-    "id": "12",
-    "title": "N°12 Caja Rock Stars",
+    "id": "13",
+    "title": "N°13 Tripack Grand Levita/MujerAndina Wines",
+    "valle": "Valles Maipo y Colchagua",
+    "image": "/img/tripack_grand_levita.jpg",
+    "price": "$71.000",
+    "bloques": [
+      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Grand Levita Brut Rosé, Syrah/Chardonnay" },
+      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Grand Levita Nature Rosé, Syrah" },
+      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Nature, Albariño" }
+    ]
+  },
+  {
+    "id": "14",
+    "title": "N°14 Caja Algorta Grand Reserve",
+    "valle": "Valle de Rapel",
+    "image": "/img/GR_Algorta.jpg",
+    "price": "$40.000",
+    "bloques": [
+      { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Carménère" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Cabernet Sauvignon" }
+    ]
+  },
+  {
+    "id": "15",
+    "title": "N°15 Caja Rock Stars",
     "valle": "Valles Rapel, Cachapoal y Colchagua",
     "image": "/img/pack-rockstars.jpg",
     "price": "$45.000",
@@ -139,19 +174,8 @@
     ]
   },
   {
-    "id": "13",
-    "title": "N°13 Caja Algorta Grand Reserve",
-    "valle": "Valle de Rapel",
-    "image": "/img/GR_Algorta.jpg",
-    "price": "$40.000",
-    "bloques": [
-      { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Carménère" },
-      { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Cabernet Sauvignon" }
-    ]
-  },
-  {
-    "id": "14",
-    "title": "N°14 Caja Colección Algorta",
+    "id": "16",
+    "title": "N°16 Caja Colección Algorta",
     "valle": "Valle de Rapel",
     "image": "/img/coleccion-algorta.jpg",
     "price": "$50.000",
@@ -164,8 +188,8 @@
     ]
   },
   {
-    "id": "15",
-    "title": "N°15 Caja Innovación",
+    "id": "17",
+    "title": "N°17 Caja Innovación",
     "valle": "Valles del Maipo, Cachapoal e Itata",
     "image": "/img/innovacion.jpg",
     "price": "$75.000",
@@ -173,30 +197,6 @@
       { "tipoCopa": "espumante", "cantidadBotellas": 2, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay, Mujer Andina Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "El Infaltable Carménère, Mujer Andina Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Jardinero Touriga Nacional, Valle del Maipo, Viñateros de Raíz" }
-    ]
-  },
-  {
-    "id": "16",
-    "title": "N°16 Tripack Grand Levita/MujerAndina Wines",
-    "valle": "Valles Maipo y Colchagua",
-    "image": "/img/tripack_grand_levita.jpg",
-    "price": "$71.000",
-    "bloques": [
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Brut, Syrah/Chardonnay" },
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Nature, Syrah" },
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Nature, Albariño" }
-    ]
-  },
-  {
-    "id": "17",
-    "title": "N°17 Espumantes/MujerAndina Wines",
-    "valle": "Valles Maipo y Colchagua",
-    "image": "/img/tripack_espumantes_maw.jpg",
-    "price": "$71.000",
-    "bloques": [
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Brut, Syrah/Chardonnay" },
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Nature, Syrah" },
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Nature, Albariño" }
     ]
   }
 ]
