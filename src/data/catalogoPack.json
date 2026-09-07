@@ -19,7 +19,7 @@
     "price": "$25.000",
     "bloques": [
       { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Ai! Brut, Chardonnay/Pinot Noir" },
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay" }
+      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay" }
     ]
   },
   {
@@ -51,8 +51,8 @@
     "image": "/img/twopack_grand_levita_brut.jpg",
     "price": "$29.000",
     "bloques": [
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Brut Rosé, Syrah/Chardonnay, 750 ml" },
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Brut Rosé, Syrah/Chardonnay, 375 ml" }
+      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Grand Levita Brut Rosé, Syrah/Chardonnay, 750 ml" },
+      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Grand Levita Brut Rosé, Syrah/Chardonnay, 375 ml" }
     ]
   },
   {
@@ -97,7 +97,7 @@
     "image": "/img/tripck_sensaciones.jpg",
     "price": "$39.000",
     "bloques": [
-      { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay, Mujer Andina Wines" },
+      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay, Mujer Andina Wines" },
       { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Taii Velo, 100% Torontel, Valle de Itata, Peroli Family & Friends" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Mala Testa, Garnache/Syrah/Mourvedre, Valle Cachapoal Andes, by Algorta" }
     ]
@@ -117,9 +117,9 @@
   {
     "id": "11",
     "title": "N°11 Tripack Espumantes/MujerAndina Wines",
-    "valle": "Valles Maipo y Colchagua",
+    "valle": "Valles Itata, Cachapoal, Bío Bío, Maipo y Colchagua",
     "image": "/img/tripack_espumantes_maw.jpg",
-    "price": "$43.000",
+    "price": "$45.000",
     "bloques": [
       { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay" },
       { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Ai! Brut, Chardonnay/Pinot Noir" },
@@ -131,7 +131,7 @@
     "title": "N°12 Infaltables New/Mujer Andina Wines",
     "valle": "Valles del Maipo y Colchagua",
     "image": "/img/tripack_infaltables_new.jpg",
-    "price": "$55.000",
+    "price": "$50.000",
     "bloques": [
       { "tipoCopa": "blanco", "cantidadBotellas": 1, "nombreVino": "El Infaltable Chardonnay, Valle de Colchagua" },
       { "tipoCopa": "blanco", "cantidadBotellas": 1, "nombreVino": "El Infaltable Verdejo/Albariño, Valle del Maipo" },
@@ -143,10 +143,10 @@
     "title": "N°13 Tripack Grand Levita/MujerAndina Wines",
     "valle": "Valles Maipo y Colchagua",
     "image": "/img/tripack_grand_levita.jpg",
-    "price": "$71.000",
+    "price": "$69.000",
     "bloques": [
       { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Grand Levita Brut Rosé, Syrah/Chardonnay" },
-      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Grand Levita Nature Rosé, Syrah" },
+      { "tipoCopa": "rosado", "cantidadBotellas": 1, "nombreVino": "Grand Levita Nature Rosé, Syrah 100% orgánico" },
       { "tipoCopa": "espumante", "cantidadBotellas": 1, "nombreVino": "Grand Levita Nature, Albariño" }
     ]
   },
@@ -194,7 +194,7 @@
     "image": "/img/innovacion.jpg",
     "price": "$75.000",
     "bloques": [
-      { "tipoCopa": "espumante", "cantidadBotellas": 2, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay, Mujer Andina Wines" },
+      { "tipoCopa": "rosado", "cantidadBotellas": 2, "nombreVino": "Livianita de Sangre Cocktail Brut Zero, Cinsault/Chardonnay, Mujer Andina Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "El Infaltable Carménère, Mujer Andina Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Jardinero Touriga Nacional, Valle del Maipo, Viñateros de Raíz" }
     ]
