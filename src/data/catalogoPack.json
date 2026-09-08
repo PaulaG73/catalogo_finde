@@ -69,25 +69,42 @@
   {
     "id": "7",
     "title": "N°7 Tripack Rock Stars",
-    "valle": "Valles Rapel, Cachapoal y Colchagua",
+    "valle": "Valles Rapel y Colchagua",
     "image": "/img/tripack_Rock_Stars.jpg",
     "price": "$23.000",
-    "ofertaEtiqueta": "Oferta 18 septiembre",
+    "ofertaEtiqueta": "Oferta dieciochera",
     "priceOferta": "$21.000",
+    "ofertaEstilo": "bandera",
     "bloques": [
-      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Cabernet Sauvignon/Syrah, Alchemysta Wines" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Cabernet Sauvignon, Alchemysta Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Pillo de Panamá Cabernet Sauvignon/Syrah/Petit Verdot, OWM Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Carménère, Viña Algorta" }
     ]
   },
   {
     "id": "8",
-    "title": "N°8 Tripack OMG!/OWM Wines",
+    "title": "N°8 Tripack Parrone/Alchemy Wines",
+    "valle": "Valles de Colchagua y Cachapoal",
+    "image": "/img/tripack_parrone.jpg",
+    "price": "$30.000",
+    "ofertaEtiqueta": "Oferta dieciochera",
+    "priceOferta": "$28.000",
+    "ofertaEstilo": "bandera",
+    "bloques": [
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Reserve Cabernet Sauvignon, Reserva" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Grand Reserve Syrah" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Grand Reserve Malbec" }
+    ]
+  },
+  {
+    "id": "9",
+    "title": "N°9 Tripack OMG!/OWM Wines",
     "valle": "Valle de Colchagua",
     "image": "/img/OMG!.jpg",
     "price": "$35.000",
-    "ofertaEtiqueta": "Oferta 18 septiembre",
+    "ofertaEtiqueta": "Oferta dieciochera",
     "priceOferta": "$30.000",
+    "ofertaEstilo": "bandera",
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made, Ensamblaje 2018" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "OWM Hand Made Black, Ensamblaje 2021" },
@@ -95,8 +112,20 @@
     ]
   },
   {
-    "id": "9",
-    "title": "N°9 Sensaciones",
+    "id": "10",
+    "title": "N°10 Tripack Alchemy Wines",
+    "valle": "Valles de Colchagua y Cachapoal",
+    "image": "/img/tripack_alchemysta.jpg",
+    "price": "$35.000",
+    "bloques": [
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Grand Reserve Syrah" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Grand Reserve Malbec" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Cuveé, Ensamblaje 2022" }
+    ]
+  },
+  {
+    "id": "11",
+    "title": "N°11 Sensaciones",
     "valle": "Valles de Cachapoal e Itata",
     "image": "/img/tripck_sensaciones.jpg",
     "price": "$39.000",
@@ -107,11 +136,14 @@
     ]
   },
   {
-    "id": "10",
-    "title": "N°10 Tripack MaipOrigen",
+    "id": "12",
+    "title": "N°12 Tripack MaipOrigen",
     "valle": "Valle del Maipo",
     "image": "/img/tripack_Maiporigen.jpg",
     "price": "$43.000",
+    "ofertaEtiqueta": "Oferta dieciochera",
+    "priceOferta": "$40.000",
+    "ofertaEstilo": "bandera",
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Jardinero Mezcla Tinta, Valle del Maipo, Viñateros de Raíz" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "El Infaltable Carménère, Mujer Andina Wines" },
@@ -119,8 +151,8 @@
     ]
   },
   {
-    "id": "11",
-    "title": "N°11 Tripack Espumantes/MujerAndina Wines",
+    "id": "13",
+    "title": "N°13 Tripack Espumantes/MujerAndina Wines",
     "valle": "Valles Itata, Cachapoal, Bío Bío, Maipo y Colchagua",
     "image": "/img/tripack_espumantes_maw.jpg",
     "price": "$45.000",
@@ -131,8 +163,8 @@
     ]
   },
   {
-    "id": "12",
-    "title": "N°12 Infaltables New/Mujer Andina Wines",
+    "id": "14",
+    "title": "N°14 Infaltables New/Mujer Andina Wines",
     "valle": "Valles del Maipo y Colchagua",
     "image": "/img/tripack_infaltables_new.jpg",
     "price": "$50.000",
@@ -143,8 +175,8 @@
     ]
   },
   {
-    "id": "13",
-    "title": "N°13 Tripack Grand Levita/MujerAndina Wines",
+    "id": "15",
+    "title": "N°15 Tripack Grand Levita/MujerAndina Wines",
     "valle": "Valles Maipo y Colchagua",
     "proximamente": true,
     "image": "/img/tripack_grand_levita.jpg",
@@ -156,35 +188,37 @@
     ]
   },
   {
-    "id": "14",
-    "title": "N°14 Caja Algorta Grand Reserve",
+    "id": "16",
+    "title": "N°16 Caja Algorta Grand Reserve",
     "valle": "Valle de Rapel",
     "image": "/img/GR_Algorta.jpg",
     "price": "$40.000",
-    "ofertaEtiqueta": "Oferta 18 septiembre",
-    "priceOferta": "$32.990",
+    "ofertaEtiqueta": "Oferta dieciochera",
+    "priceOferta": "$33.000",
+    "ofertaEstilo": "bandera",
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Carménère" },
       { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Grand Reserve, Cabernet Sauvignon" }
     ]
   },
   {
-    "id": "15",
-    "title": "N°15 Caja Rock Stars",
-    "valle": "Valles Rapel, Cachapoal y Colchagua",
+    "id": "17",
+    "title": "N°17 Caja Rock Stars",
+    "valle": "Valles Rapel y Colchagua",
     "image": "/img/pack-rockstars.jpg",
     "price": "$45.000",
-    "ofertaEtiqueta": "Oferta 18 septiembre",
+    "ofertaEtiqueta": "Oferta dieciochera",
     "priceOferta": "$36.000",
+    "ofertaEstilo": "bandera",
     "bloques": [
-      { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Parróne Cabernet Sauvignon/Syrah, Alchemysta Wines" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Parróne Reserva Cabernet Sauvignon, Alchemysta Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Pillo de Panamá Cabernet Sauvignon/Syrah/Petit Verdot, OWM Wines" },
-      { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Grand Reserve Cabernet Sauvignon, Viña Algorta" }
+      { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Grand Reserve, Carménère, Viña Algorta" }
     ]
   },
   {
-    "id": "16",
-    "title": "N°16 Caja Colección Algorta",
+    "id": "18",
+    "title": "N°18 Caja Colección Algorta",
     "valle": "Valle de Rapel",
     "image": "/img/coleccion-algorta.jpg",
     "price": "$55.000",
@@ -197,8 +231,25 @@
     ]
   },
   {
-    "id": "17",
-    "title": "N°17 Caja Innovación",
+    "id": "19",
+    "title": "N°19 Caja Alchemy Wines",
+    "valle": "Valles de Colchagua y Cachapoal",
+    "image": "/img/caja_alchemysta_wines.jpg",
+    "price": "$60.000",
+    "ofertaEtiqueta": "Oferta dieciochera",
+    "priceOferta": "$50.000",
+    "ofertaEstilo": "bandera",
+    "bloques": [
+      
+      { "tipoCopa": "tinto", "cantidadBotellas": 3, "nombreVino": "Parróne Reserva Cabernet Sauvignon, Alchemysta Wines" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Grand Reserve Syrah" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Grand Reserve Malbec" },
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Cuveé, Ensamblaje 2022" }
+    ]
+  },
+  {
+    "id": "20",
+    "title": "N°20 Caja Innovación",
     "valle": "Valles del Maipo, Cachapoal e Itata",
     "image": "/img/innovacion.jpg",
     "price": "$75.000",

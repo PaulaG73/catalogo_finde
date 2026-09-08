@@ -41,6 +41,31 @@
           </svg>
           <span class="wa-pill-label">Lo quiero!</span>
         </a>
+        <!-- Comparación visual dieciochera: packs 7 / 8 / 9 -->
+        <div
+          v-if="muestraSelloDieciochero"
+          class="card-pack-18-seal card-pack-18-seal--bandera"
+          role="img"
+          :aria-label="ofertaEtiqueta || 'Oferta dieciochera'"
+        >
+          <svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true">
+            <defs>
+              <clipPath :id="`flagClip-${packId}`">
+                <circle cx="32" cy="32" r="28" />
+              </clipPath>
+            </defs>
+            <circle cx="32" cy="32" r="30" fill="#fff" />
+            <g :clip-path="`url(#flagClip-${packId})`">
+              <rect x="4" y="4" width="56" height="28" fill="#0039a6" />
+              <rect x="4" y="32" width="56" height="28" fill="#d52b1e" />
+              <path
+                fill="#fff"
+                d="M32 12.5l2.35 7.2h7.55l-6.1 4.45 2.35 7.2L32 27l-6.15 4.35 2.35-7.2-6.1-4.45h7.55z"
+              />
+            </g>
+            <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2.5" />
+          </svg>
+        </div>
         <img
           :src="image"
           class="card-img-top"
@@ -57,9 +82,8 @@
         >
           <div
             v-if="priceOferta && !agotado"
-            class="card-price-oferta text-center"
+            class="card-price-oferta card-price-oferta--dieciochera text-center"
           >
-            <p class="card-price-oferta-label mb-0 fw-bold">{{ ofertaEtiqueta }}</p>
             <p class="card-price card-price--oferta mb-0 fw-bold">{{ priceOferta }}</p>
             <p class="card-price card-price--regular mb-0 text-decoration-line-through">
               {{ price }}
@@ -184,6 +208,11 @@
       type: String,
       default: '',
     },
+    /** bandera = sello dieciochero (opción A) */
+    ofertaEstilo: {
+      type: String,
+      default: '',
+    },
     agotado: {
       type: Boolean,
       default: false,
@@ -192,6 +221,11 @@
       type: Boolean,
       default: false,
     },
+  })
+
+  const muestraSelloDieciochero = computed(() => {
+    if (props.agotado || !props.priceOferta?.trim()) return false
+    return props.ofertaEstilo === 'bandera' || Boolean(props.ofertaEtiqueta?.trim())
   })
 
   const precioWhatsApp = computed(() =>
@@ -326,6 +360,19 @@
     translate: none;
   }
 
+  .card-pack-18-seal {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.45rem;
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+  }
+
+  .card-pack-18-seal--bandera svg {
+    display: block;
+  }
+
   .card-pack-price-overlay {
     position: absolute;
     right: 0;
@@ -357,6 +404,14 @@
     color: #b8f5c4;
     font-size: clamp(1.05rem, 2.75vw, 1.28rem);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  }
+
+  .card-pack-price-overlay .card-price-oferta--dieciochera .card-price--oferta {
+    color: #ff3b3b;
+    font-size: clamp(1.2rem, 3.2vw, 1.45rem);
+    text-shadow:
+      0 0 12px rgba(213, 43, 30, 0.55),
+      0 2px 8px rgba(0, 0, 0, 0.85);
   }
 
   .card-pack-price-overlay .card-price--regular {

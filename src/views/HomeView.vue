@@ -1,8 +1,12 @@
 <template>
-  <NavBar />
+  <NavBar
+    :solo-ofertas="soloOfertas"
+    @ver-ofertas="activarSoloOfertas"
+    @ver-todos-packs="mostrarTodosPacks"
+  />
 
   <section id="sobre-mi" class="home-section home-section--ink py-3 py-md-4">
-    <h3 class="mb-2 mb-md-3 fw-bold">El mundo de Vinóloga</h3>
+    <h3 class="mb-2 mb-md-3 fw-bold">Atención, que voy contando…</h3>
     <div class="container sobre-mi d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 gap-md-4">
       <div
         ref="sobreMiFotoShellRef"
@@ -18,16 +22,29 @@
             decoding="async"
           >
         </div>
+        <img
+          class="sobre-mi-foto__huasa"
+          src="/img/sombrero-huasa.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        >
       </div>
       <div class="sobre-mi-texto">
-        <p class="mb-1 mb-md-2">
-          Es tiempo de <span class="sobre-mi-vino-mayus">APRENDER</span>, es tiempo de
-          <span class="sobre-mi-vino-mayus">COMPARTIR</span>, es tiempo de
-          <span class="sobre-mi-vino-mayus">DISFRUTAR</span>.
-        </p>
-        <p class="mb-3 mb-md-3">
-          Bienvenido al Mundo de Vinóloga...el mundo de los "<span class="sobre-mi-vino-mayus">VINOS CON CUENTO</span>"...
-        </p>
+        <div class="sobre-mi-paya mb-3 mb-md-3" role="doc-poem" aria-label="Paya dieciochera del vino">
+          <p class="sobre-mi-paya__estrofa mb-2 mb-md-3">
+            lo que el viñedo guardó:<br>
+            cada botella es un cuento<br>
+            y cada brindis, un don.
+          </p>
+          <p class="sobre-mi-paya__estrofa mb-0">
+            Si el dieciocho pide fiesta<br>
+            y la mesa pide aliento,<br>
+            <span class="sobre-mi-vino-mayus">Vinóloga</span> sirve y canta<br>
+            sus <span class="sobre-mi-vino-mayus">vinos llenos de cuento</span>.
+          </p>
+        </div>
         <a
           class="sobre-mi-cta"
           :href="contactoWhatsAppUrl"
@@ -62,7 +79,19 @@
   </section>
   <section id="packs" class="home-section home-section--slate pt-4 pt-md-5 pb-2 pb-md-3">
     <div class="container text-center">
-      <h3 class="mb-4 fw-bold">Packs fin de semana</h3>
+      <h3 class="mb-2 fw-bold">{{ tituloPacks }}</h3>
+      <p v-if="soloOfertas" class="packs-filtro-hint mb-4">
+        Mostrando las promos dieciocheras.
+        <button type="button" class="packs-filtro-clear" @click="mostrarTodosPacks">
+          Ver todos los packs
+        </button>
+      </p>
+      <p v-else class="packs-filtro-hint mb-4">
+        ¿Buscas las del 18?
+        <button type="button" class="packs-filtro-clear" @click="activarSoloOfertas">
+          Ver promos dieciocheras
+        </button>
+      </p>
     </div>
     <div
       class="packs-carousel-outer d-flex align-items-center gap-2 gap-sm-3 px-2 px-sm-3"
@@ -105,6 +134,7 @@
               :price="proyecto.price"
               :oferta-etiqueta="proyecto.ofertaEtiqueta || ''"
               :price-oferta="proyecto.priceOferta || ''"
+              :oferta-estilo="proyecto.ofertaEstilo || ''"
               :agotado="Boolean(proyecto.agotado)"
               :proximamente="Boolean(proyecto.proximamente)"
             />
@@ -148,7 +178,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent.vue'
 import CardComponent from '../components/CardComponent.vue'
@@ -161,8 +191,51 @@ const sobreMiFotoSrc = '/img/Vinóloga_IA.jpg'
 const contactoWhatsAppReady = computed(() => isWhatsAppConfigured())
 const contactoWhatsAppUrl = computed(() => getWhatsAppHablaConmigoUrl())
 
+const soloOfertas = ref(false)
+
+const packsVisibles = computed(() => {
+  if (!soloOfertas.value) return catalogoPacks
+  return catalogoPacks.filter(
+    (p) => typeof p.priceOferta === 'string' && p.priceOferta.trim().length > 0,
+  )
+})
+
 /** Dos series iguales para bucle de scroll sin salto visible */
-const proyectosLoop = computed(() => [...catalogoPacks, ...catalogoPacks])
+const proyectosLoop = computed(() => [...packsVisibles.value, ...packsVisibles.value])
+
+const tituloPacks = computed(() =>
+  soloOfertas.value ? 'Promos dieciocheras' : 'Los packs de Vinóloga',
+)
+
+async function resetCarouselScroll() {
+  await nextTick()
+  const el = carouselRef.value
+  if (el) {
+    el.scrollLeft = 0
+    scheduleSyncCarouselInlineSize()
+  }
+}
+
+function scrollToPacks() {
+  const packs = document.getElementById('packs')
+  if (!packs) return
+  packs.scrollIntoView({
+    behavior: reduceMotion.value ? 'auto' : 'smooth',
+    block: 'start',
+  })
+}
+
+async function activarSoloOfertas() {
+  soloOfertas.value = true
+  await resetCarouselScroll()
+  scrollToPacks()
+}
+
+async function mostrarTodosPacks() {
+  soloOfertas.value = false
+  await resetCarouselScroll()
+  scrollToPacks()
+}
 
 const carouselRef = ref(null)
 const sobreMiFotoShellRef = ref(null)
@@ -343,6 +416,28 @@ onUnmounted(() => {
   background-color: var(--vin-negro-marca);
 }
 
+.packs-filtro-hint {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+}
+
+.packs-filtro-clear {
+  margin-left: 0.35rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #f5d9a8;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  cursor: pointer;
+}
+
+.packs-filtro-clear:hover,
+.packs-filtro-clear:focus-visible {
+  color: #fff;
+}
+
 .home-section--ink {
   background-color: var(--vin-negro-marca);
 }
@@ -419,87 +514,58 @@ onUnmounted(() => {
 }
 
 /*
- * Línea tipo viña bajo el título (CSS):
- * ::before = tallo en curva (cuarto de elipse con bordes).
- * ::after  = “hojas” (elipses + box-shadow) y un puntito tipo uva.
+ * Detalle dieciochero bajo el título:
+ * franja azul · blanco · rojo (colores de Chile).
  */
 .home-section h3::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  left: 50%;
-  bottom: 0.18rem;
-  width: clamp(2.35rem, 14vw, 3.15rem);
-  height: clamp(1.1rem, 5.5vw, 1.45rem);
-  transform: translateX(calc(-50% - 0.12rem)) rotate(-13deg);
-  transform-origin: 0 100%;
-  border: none;
-  border-bottom: 2.5px solid rgba(var(--vin-acento-rgb), 0.88);
-  border-left: 2.5px solid rgba(var(--vin-acento-rgb), 0.88);
-  border-radius: 0 0 0 100%;
-  background: transparent;
-  opacity: 0.9;
-  pointer-events: none;
+  display: none;
 }
 
-/* Guiño al arco del logo: franja breve, sin verdes de “viña” */
 .home-section h3::after {
   content: '';
   position: absolute;
   z-index: 0;
   left: 50%;
-  bottom: 0.12rem;
-  width: clamp(2.5rem, 18vw, 3.75rem);
-  height: 3px;
+  bottom: 0.28rem;
+  width: clamp(3rem, 22vw, 4.6rem);
+  height: 4px;
   transform: translateX(-50%);
   border-radius: 2px;
   pointer-events: none;
   background: linear-gradient(
     90deg,
-    #c9a227 0%,
-    #3ddc84 22%,
-    #4dabf7 44%,
-    #9775fa 66%,
-    #f783ac 88%,
-    var(--vin-acento) 100%
+    #0039a6 0%,
+    #0039a6 33.33%,
+    #ffffff 33.33%,
+    #ffffff 66.66%,
+    #d52b1e 66.66%,
+    #d52b1e 100%
   );
-  opacity: 0.88;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.35);
+  opacity: 0.95;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .home-section h3::before {
-    animation: homeTituloVinaTallo 5s ease-in-out infinite;
-  }
-
   .home-section h3::after {
-    animation: homeTituloVinaHojas 5s ease-in-out infinite;
+    animation: homeTituloChileBar 4.5s ease-in-out infinite;
   }
 }
 
-@keyframes homeTituloVinaTallo {
-  0%,
-  100% {
-    transform: translateX(calc(-50% - 0.12rem)) rotate(-13deg);
-  }
-  50% {
-    transform: translateX(calc(-50% - 0.06rem)) rotate(-10deg);
-  }
-}
-
-@keyframes homeTituloVinaHojas {
+@keyframes homeTituloChileBar {
   0%,
   100% {
     transform: translateX(-50%) scaleX(1);
-    opacity: 0.88;
+    opacity: 0.92;
   }
   50% {
-    transform: translateX(-50%) scaleX(1.06);
+    transform: translateX(-50%) scaleX(1.05);
     opacity: 1;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-section h3::before,
   .home-section h3::after {
     animation: none !important;
   }
@@ -511,6 +577,7 @@ onUnmounted(() => {
   width: var(--foto-ancho);
   margin-inline: auto;
   position: relative;
+  overflow: visible;
   opacity: 0;
   transform: scale(0.96) translateY(14px);
   transition:
@@ -534,10 +601,28 @@ onUnmounted(() => {
     0 12px 36px rgba(0, 0, 0, 0.45);
 }
 
+.sobre-mi-foto__huasa {
+  position: absolute;
+  z-index: 2;
+  top: -11%;
+  left: 50%;
+  width: 86%;
+  max-width: none;
+  height: auto;
+  transform: translateX(-50%) rotate(-5deg);
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+
 @media (min-width: 768px) {
   #sobre-mi .sobre-mi-foto-shell {
     --foto-ancho: 12.5rem;
     margin-inline: 0;
+  }
+
+  .sobre-mi-foto__huasa {
+    top: -12%;
+    width: 88%;
   }
 }
 
@@ -565,6 +650,20 @@ onUnmounted(() => {
   line-height: 1.6;
   font-size: clamp(0.85rem, 2.2vw, 0.95rem);
   color: var(--vin-texto-claro);
+}
+
+.sobre-mi-paya {
+  max-width: 22rem;
+  margin-inline: auto;
+}
+
+.sobre-mi-paya__estrofa {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(0.95rem, 2.5vw, 1.12rem);
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .sobre-mi-cta {
