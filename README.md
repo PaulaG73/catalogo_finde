@@ -1,12 +1,14 @@
-# Catálogo Fin de Semana — Vinóloga
+# Catálogo 18 — Vinóloga (`catalogo_18`)
 
 
 
-SPA en Vue 3 que muestra oferta de packs de vino para Semana Santa: Presentación de marca, carrusel de tarjetas con datos desde JSON y pie de página con direccionamiento a whatsapp.
+SPA en Vue 3 con packs de vino en edición dieciochera: presentación de marca, carrusel, promos del 18 y pedido por WhatsApp.
 
-- **Repositorio:** [GitHub — catalogo_vinos](https://github.com/PaulaG73/catalogo_finde)
+- **Proyecto npm:** `catalogo_18` (rama Git `catalogo-18`)
+- **Repositorio:** [GitHub — catalogo_finde](https://github.com/PaulaG73/catalogo_finde) _(el remoto puede seguir con el nombre histórico)_
+- **Demo (producción):** [catalogofinde.netlify.app](https://catalogofinde.netlify.app)
 
-- **Demo (producción):** [catalogovinos.netlify.app](https://catalogofinde.netlify.app)
+> Tras las Fiestas Patrias: ver [`EDICION_CATALOGO_18.md`](./EDICION_CATALOGO_18.md) para volver a la edición fin de semana.
 
 ---
 
