@@ -84,7 +84,9 @@
             v-if="priceOferta && !agotado"
             class="card-price-oferta card-price-oferta--dieciochera text-center"
           >
-            <p class="card-price card-price--oferta mb-0 fw-bold">{{ priceOferta }}</p>
+            <p class="card-price card-price--oferta mb-0 fw-bold">
+              <span class="card-price-oferta-paint">{{ priceOferta }}</span>
+            </p>
             <p class="card-price card-price--regular mb-0 text-decoration-line-through">
               {{ price }}
             </p>
@@ -407,11 +409,38 @@
   }
 
   .card-pack-price-overlay .card-price-oferta--dieciochera .card-price--oferta {
-    color: #ff3b3b;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
     font-size: clamp(1.2rem, 3.2vw, 1.45rem);
-    text-shadow:
-      0 0 12px rgba(213, 43, 30, 0.55),
-      0 2px 8px rgba(0, 0, 0, 0.85);
+    text-shadow: 0 1px 0 rgba(80, 10, 10, 0.55);
+  }
+
+  .card-price-oferta--dieciochera .card-price-oferta-paint {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0.06em 0.48em 0.05em;
+    line-height: 1.1;
+    color: #fff;
+  }
+
+  .card-price-oferta--dieciochera .card-price-oferta-paint::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -0.08em;
+    right: -0.32em;
+    bottom: 0.12em;
+    left: -0.28em;
+    background:
+      radial-gradient(ellipse 82% 70% at 28% 48%, #e12a24 0%, #c41c16 58%, transparent 74%),
+      radial-gradient(ellipse 76% 68% at 74% 46%, #d52b1e 0%, #b21812 52%, transparent 72%);
+    border-radius: 48% 52% 50% 50% / 62% 58% 42% 38%;
+    transform: rotate(-3deg);
+    box-shadow:
+      0.1em -0.04em 0 -0.05em rgba(180, 22, 16, 0.85),
+      -0.12em 0.04em 0 -0.07em rgba(226, 58, 46, 0.7);
   }
 
   .card-pack-price-overlay .card-price--regular {
@@ -491,6 +520,15 @@
     line-height: 1.22;
     color: #444;
     text-align: left;
+  }
+
+  @media (max-width: 767.98px) {
+    .card-bloque {
+      font-size: clamp(0.8rem, 3.6vw, 0.95rem);
+      line-height: 1.32;
+      color: #1a1415;
+      font-weight: 600;
+    }
   }
   
   .bloque-grid {

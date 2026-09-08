@@ -83,10 +83,10 @@
       <p v-if="soloOfertas" class="packs-filtro-hint mb-4">
         Mostrando las promos dieciocheras.
         <button type="button" class="packs-filtro-clear" @click="mostrarTodosPacks">
-          Ver todos los packs
+          Ver catálogo completo
         </button>
       </p>
-      <p v-else class="packs-filtro-hint mb-4">
+      <p v-else class="packs-filtro-hint packs-filtro-hint--desktop-only mb-4">
         ¿Buscas las del 18?
         <button type="button" class="packs-filtro-clear" @click="activarSoloOfertas">
           Ver promos dieciocheras
@@ -438,6 +438,12 @@ onUnmounted(() => {
   color: #fff;
 }
 
+@media (max-width: 991.98px) {
+  .packs-filtro-hint--desktop-only {
+    display: none;
+  }
+}
+
 .home-section--ink {
   background-color: var(--vin-negro-marca);
 }
@@ -612,6 +618,22 @@ onUnmounted(() => {
   transform: translateX(-50%) rotate(-5deg);
   pointer-events: none;
   filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+
+@media (max-width: 767.98px) {
+  #sobre-mi > h3 {
+    position: relative;
+    z-index: 5;
+  }
+
+  #sobre-mi .sobre-mi-foto-shell {
+    margin-top: 2.9rem;
+  }
+
+  .sobre-mi-foto__huasa {
+    top: -2.55rem;
+    width: 82%;
+  }
 }
 
 @media (min-width: 768px) {

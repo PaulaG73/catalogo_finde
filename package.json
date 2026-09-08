@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "fix-logo": "node scripts/knockout-white-logo.cjs",
-    "optimize-pack-og": "node scripts/optimize-pack-share-images.cjs"
+    "optimize-pack-og": "node scripts/optimize-pack-share-images.cjs",
+    "generate-og": "node scripts/generate-og-pages.cjs"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",

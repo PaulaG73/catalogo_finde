@@ -1,3 +1,5 @@
+import OG_SLUG_BY_PACK_ID from '../data/ogSlugs.json'
+
 /** Solo dígitos: código de país + número (sin + ni espacios). Ej. Chile: 56912345678 */
 export const WHATSAPP_NUMBER_DIGITS = '56996450950'
 
@@ -47,55 +49,33 @@ function getShareBaseOrigin() {
 }
 
 const OG_PAGE_SUFFIX = '.html'
+const OG_CATALOGO_PAGE = `og-catalogo${OG_PAGE_SUFFIX}`
 
 /**
- * Nombre de archivo en `public/`: `og-{id en minúsculas}.html` (Netlify/Linux distinguen mayúsculas; si no coincide, cae el SPA y WhatsApp muestra el og:image del index: douro).
+ * Nombre de archivo en `public/`: `og-{slug}.html` (Netlify/Linux distinguen mayúsculas; si no coincide, cae el SPA y WhatsApp muestra el og:image del index).
  */
-function packOgPagePath(packId) {
-  const id = typeof packId === 'string' ? packId.trim() : ''
+function packOgPagePath(slug) {
+  const id = typeof slug === 'string' ? slug.trim() : ''
   if (!id) return ''
   return `og-${id.toLowerCase()}${OG_PAGE_SUFFIX}`
-}
-
-/** Slug de página OG por id de pack (actual y legacy). */
-const OG_SLUG_BY_PACK_ID = {
-  '1': 'alchemysta',
-  '2': 'mujer-andina',
-  '3': 'rose',
-  '4': 'owm',
-  '5': 'burbujas-gift',
-  '6': 'algorta',
-  /** Tripack Rock Stars (no usar slug genérico `rockstar`: evita confusión con caja Rock Stars). */
-  '7': 'tripack-rockstars',
-  '9': 'omg',
-  '11': 'sensaciones',
-  '12': 'maiporigen',
-  '14': 'infaltables-new',
-  '16': 'algorta-grand-reserve',
-  '17': 'rockstar',
-  '18': 'coleccionalgorta',
-  '20': 'innovacion',
-  alchemysta: 'alchemysta',
-  'mujer-andina': 'mujer-andina',
-  rose: 'rose',
-  owm: 'owm',
-  'burbujas-gift': 'burbujas-gift',
-  algorta: 'algorta',
-  rockstar: 'rockstar',
-  'tripack-rockstars': 'tripack-rockstars',
-  omg: 'omg',
-  sensaciones: 'sensaciones',
-  maiporigen: 'maiporigen',
-  'infaltables-new': 'infaltables-new',
-  'algorta-grand-reserve': 'algorta-grand-reserve',
-  coleccionalgorta: 'coleccionalgorta',
-  innovacion: 'innovacion',
 }
 
 function ogSlugFromPackId(packId) {
   const id = typeof packId === 'string' ? packId.trim().toLowerCase() : ''
   if (!id) return ''
   return OG_SLUG_BY_PACK_ID[id] || ''
+}
+
+function catalogPreviewUrlForWhatsApp() {
+  const base = getShareBaseOrigin()
+  if (!base) return ''
+  return `${base}/${OG_CATALOGO_PAGE}`
+}
+
+function whatsAppSendUrl(text) {
+  const digits = digitsOnly()
+  if (!digits) return '#'
+  return `https://api.whatsapp.com/send?phone=${digits}&text=${encodeURIComponent(text)}`
 }
 
 /**
@@ -167,18 +147,26 @@ export function getWhatsAppUrl() {
 export function getWhatsAppFooterUrl() {
   const digits = digitsOnly()
   if (!digits) return '#'
-  const text = 'Hola Vinóloga, quiero hacer un pedido de vinos...'
-  return `https://api.whatsapp.com/send?phone=${digits}&text=${encodeURIComponent(text)}`
+  const previewUrl = catalogPreviewUrlForWhatsApp()
+  const parts = ['Hola Vinóloga, quiero hacer un pedido de vinos...']
+  if (previewUrl && /^https:\/\//i.test(previewUrl)) {
+    parts.push('', previewUrl)
+  }
+  return whatsAppSendUrl(parts.join('\n').trimEnd())
 }
 
 /**
- * WhatsApp desde «Habla conmigo» (Sobre mí): saludo de Vinóloga en el borrador del chat.
+ * WhatsApp desde «Habla conmigo» (Sobre mí): saludo + vista previa del catálogo (foto Sobre mí).
  */
 export function getWhatsAppHablaConmigoUrl() {
   const digits = digitsOnly()
   if (!digits) return '#'
-  const text = 'Hola Vinóloga, te hablo desde tu catálogo...'
-  return `https://api.whatsapp.com/send?phone=${digits}&text=${encodeURIComponent(text)}`
+  const previewUrl = catalogPreviewUrlForWhatsApp()
+  const parts = ['Hola Vinóloga, te hablo desde tu catálogo...']
+  if (previewUrl && /^https:\/\//i.test(previewUrl)) {
+    parts.push('', previewUrl)
+  }
+  return whatsAppSendUrl(parts.join('\n').trimEnd())
 }
 
 /**
@@ -189,14 +177,19 @@ export function getWhatsAppPackUrl(pack) {
   const digits = digitsOnly()
   if (!digits) return '#'
 
+  const packId = typeof pack?.packId === 'string' ? pack.packId.trim() : ''
   const title = typeof pack?.title === 'string' ? pack.title.trim() : ''
   const valle = typeof pack?.valle === 'string' ? pack.valle.trim() : ''
   const price = typeof pack?.price === 'string' ? pack.price.trim() : ''
   const ofertaEtiqueta =
     typeof pack?.ofertaEtiqueta === 'string' ? pack.ofertaEtiqueta.trim() : ''
-  const previewUrl = resolvePackPreviewUrlForWhatsApp(pack?.packId, pack?.image || '')
+  const previewUrl = resolvePackPreviewUrlForWhatsApp(packId, pack?.image || '')
 
-  const parts = ['Hola Vinóloga, quiero este pack']
+  const parts = [
+    packId && /^\d+$/.test(packId)
+      ? `Hola Vinóloga, quiero el pack N°${packId}`
+      : 'Hola Vinóloga, quiero este pack',
+  ]
   if (title) parts.push(title)
   if (valle) parts.push(valle)
   parts.push('')
@@ -215,8 +208,7 @@ export function getWhatsAppPackUrl(pack) {
     }
   }
 
-  const text = parts.join('\n').trimEnd()
-  return `https://api.whatsapp.com/send?phone=${digits}&text=${encodeURIComponent(text)}`
+  return whatsAppSendUrl(parts.join('\n').trimEnd())
 }
 
 export function isWhatsAppConfigured() {
