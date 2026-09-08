@@ -198,7 +198,7 @@ function writePackPages() {
 function writeCatalogPage(imageSize) {
   const imageUrl = `${SITE}/img/${CATALOG_OG_IMAGE}`
   const description =
-    'Es tiempo de APRENDER, es tiempo de COMPARTIR, es tiempo de DISFRUTAR. Revisa el catálogo aquí.'
+    'lo que el viñedo guardó: cada botella es un cuento y cada brindis, un don. Si el dieciocho pide fiesta y la mesa pide aliento, Vinóloga sirve y canta sus vinos llenos de cuento.'
   const html = ogHtml({
     title: 'Catálogo 18 · Vinóloga',
     description,

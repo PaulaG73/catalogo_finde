@@ -19,7 +19,7 @@ function publicSiteOrigin() {
 }
 
 const OG_DESCRIPTION =
-  'Es tiempo de APRENDER, es tiempo de COMPARTIR, es tiempo de DISFRUTAR. Revisa el catálogo aquí.'
+  'lo que el viñedo guardó: cada botella es un cuento y cada brindis, un don. Si el dieciocho pide fiesta y la mesa pide aliento, Vinóloga sirve y canta sus vinos llenos de cuento.'
 
 module.exports = defineConfig({
   transpileDependencies: true,
