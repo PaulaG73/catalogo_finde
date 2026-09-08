@@ -200,7 +200,7 @@ function writeCatalogPage(imageSize) {
   const description =
     'lo que el viñedo guardó: cada botella es un cuento y cada brindis, un don. Si el dieciocho pide fiesta y la mesa pide aliento, Vinóloga sirve y canta sus vinos llenos de cuento.'
   const html = ogHtml({
-    title: 'Catálogo 18 · Vinóloga',
+    title: 'Atención, que voy contando…',
     description,
     pageUrl: `${SITE}/og-catalogo.html`,
     imageUrl,

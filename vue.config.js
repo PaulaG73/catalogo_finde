@@ -18,6 +18,7 @@ function publicSiteOrigin() {
   return origin || PUBLIC_SITE_FALLBACK
 }
 
+const OG_TITLE = 'Atención, que voy contando…'
 const OG_DESCRIPTION =
   'lo que el viñedo guardó: cada botella es un cuento y cada brindis, un don. Si el dieciocho pide fiesta y la mesa pide aliento, Vinóloga sirve y canta sus vinos llenos de cuento.'
 
@@ -48,6 +49,7 @@ module.exports = defineConfig({
       opts.ogImageWidth = 900
       opts.ogImageHeight = 1370
       opts.ogDescription = OG_DESCRIPTION
+      opts.ogTitle = OG_TITLE
       return args
     })
   },
