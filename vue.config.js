@@ -1,8 +1,21 @@
 const { defineConfig } = require('@vue/cli-service')
 
+const PUBLIC_SITE_FALLBACK = 'https://catalogo18.netlify.app'
+const LEGACY_PUBLIC_SITE_HOSTS = ['catalogofinde.netlify.app']
+
 /** Sin barra final; para Open Graph / WhatsApp (VUE_APP_PUBLIC_SITE_URL en .env.production) */
 function publicSiteOrigin() {
-  return (process.env.VUE_APP_PUBLIC_SITE_URL || '').replace(/\/+$/, '')
+  let origin = (process.env.VUE_APP_PUBLIC_SITE_URL || '').replace(/\/+$/, '')
+  origin = origin.replace(/^http:\/\//i, 'https://')
+  if (origin) {
+    try {
+      const host = new URL(origin).hostname.toLowerCase()
+      if (LEGACY_PUBLIC_SITE_HOSTS.includes(host)) origin = PUBLIC_SITE_FALLBACK
+    } catch {
+      origin = PUBLIC_SITE_FALLBACK
+    }
+  }
+  return origin || PUBLIC_SITE_FALLBACK
 }
 
 const OG_DESCRIPTION =

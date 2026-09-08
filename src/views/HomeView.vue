@@ -688,6 +688,17 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.92);
 }
 
+@media (max-width: 767.98px) {
+  .sobre-mi-paya {
+    max-width: none;
+  }
+
+  .sobre-mi-paya__estrofa {
+    font-size: 1.12rem;
+    line-height: 1.5;
+  }
+}
+
 .sobre-mi-cta {
   display: inline-flex;
   align-items: center;

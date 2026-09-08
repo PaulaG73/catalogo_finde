@@ -202,7 +202,7 @@ function writeCatalogPage(imageSize) {
   const html = ogHtml({
     title: 'Catálogo 18 · Vinóloga',
     description,
-    pageUrl: `${SITE}/`,
+    pageUrl: `${SITE}/og-catalogo.html`,
     imageUrl,
     imageAlt: 'Vinóloga en modo Fiestas Patrias',
     imageWidth: imageSize.width,
