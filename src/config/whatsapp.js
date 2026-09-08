@@ -14,6 +14,8 @@ const PUBLIC_SITE_FROM_ENV = process.env.VUE_APP_PUBLIC_SITE_URL || ''
  * Cambia esto si despliegas en otro dominio (o define siempre VUE_APP_PUBLIC_SITE_URL).
  */
 const WHATSAPP_FALLBACK_SITE_ORIGIN = 'https://catalogo18.netlify.app'
+/** Hostname viejo: al renombrar el sitio en Netlify deja de existir y WhatsApp abre “Site not found”. */
+const LEGACY_PUBLIC_SITE_HOSTS = ['catalogofinde.netlify.app']
 
 function publicSiteUrlFromEnv() {
   return PUBLIC_SITE_FROM_ENV
@@ -31,18 +33,30 @@ function normalizeHttpsRoot(url) {
   return u.replace(/^http:\/\//i, 'https://')
 }
 
+function rewriteLegacyPublicOrigin(origin) {
+  const o = normalizeHttpsRoot(origin)
+  if (!o) return ''
+  try {
+    const host = new URL(o).hostname.toLowerCase()
+    if (LEGACY_PUBLIC_SITE_HOSTS.includes(host)) return WHATSAPP_FALLBACK_SITE_ORIGIN
+  } catch {
+    return o
+  }
+  return o
+}
+
 /**
  * Origen público para enlaces en WhatsApp: env, luego fallback fijo, luego origin (no localhost).
  */
 function getShareBaseOrigin() {
-  let origin = normalizeHttpsRoot(publicSiteUrlFromEnv())
+  let origin = rewriteLegacyPublicOrigin(publicSiteUrlFromEnv())
   if (!origin) origin = normalizeHttpsRoot(WHATSAPP_FALLBACK_SITE_ORIGIN)
   if (origin) return origin
 
   if (typeof window !== 'undefined' && window.location?.origin) {
     const o = window.location.origin.replace(/\/+$/, '')
     if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(o)) return ''
-    return normalizeHttpsRoot(o)
+    return rewriteLegacyPublicOrigin(o)
   }
 
   return ''
@@ -185,8 +199,9 @@ export function getWhatsAppPackUrl(pack) {
     typeof pack?.ofertaEtiqueta === 'string' ? pack.ofertaEtiqueta.trim() : ''
   const previewUrl = resolvePackPreviewUrlForWhatsApp(packId, pack?.image || '')
 
+  const titleHasNumero = /^N[°º\u00B0\u00BA]\s*\d+/i.test(title)
   const parts = [
-    packId && /^\d+$/.test(packId)
+    packId && /^\d+$/.test(packId) && !titleHasNumero
       ? `Hola Vinóloga, quiero el pack N°${packId}`
       : 'Hola Vinóloga, quiero este pack',
   ]
