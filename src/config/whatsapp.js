@@ -11,7 +11,7 @@ const PUBLIC_SITE_FROM_ENV = process.env.VUE_APP_PUBLIC_SITE_URL || ''
  * Si el .env no llega al bundle en dev, el enlace a la foto no puede quedar vacío.
  * Cambia esto si despliegas en otro dominio (o define siempre VUE_APP_PUBLIC_SITE_URL).
  */
-const WHATSAPP_FALLBACK_SITE_ORIGIN = 'https://catalogofinde.netlify.app'
+const WHATSAPP_FALLBACK_SITE_ORIGIN = 'https://catalogo18.netlify.app'
 
 function publicSiteUrlFromEnv() {
   return PUBLIC_SITE_FROM_ENV

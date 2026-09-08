@@ -6,7 +6,7 @@ SPA en Vue 3 con packs de vino en edición dieciochera: presentación de marca, 
 
 - **Proyecto npm:** `catalogo_18` (rama Git `catalogo-18`)
 - **Repositorio:** [GitHub — catalogo_finde](https://github.com/PaulaG73/catalogo_finde) _(el remoto puede seguir con el nombre histórico)_
-- **Demo (producción):** [catalogofinde.netlify.app](https://catalogofinde.netlify.app)
+- **Demo (producción):** [catalogo18.netlify.app](https://catalogo18.netlify.app)
 
 > Tras las Fiestas Patrias: ver [`EDICION_CATALOGO_18.md`](./EDICION_CATALOGO_18.md) para volver a la edición fin de semana.
 
@@ -206,7 +206,7 @@ Para que el `index.html` generado incluya `og:url`, `og:image` y las meta de Twi
 
 |---|---|---|
 
-| `.env.production` en la raíz (cargado al ejecutar `npm run build`) | `VUE_APP_PUBLIC_SITE_URL` | `https://catalogofinde.netlify.app` |
+| `.env.production` en la raíz (cargado al ejecutar `npm run build`) | `VUE_APP_PUBLIC_SITE_URL` | `https://catalogo18.netlify.app` |
 
 | Panel de Netlify → Environment variables | Misma variable | Mismo valor |
 

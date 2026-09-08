@@ -7,42 +7,37 @@ Esta rama / carpeta es la **edición dieciochera** del catálogo Vinóloga.
 | Nombre npm (`package.json`) | `catalogo_18` |
 | Rama Git recomendada | `catalogo-18` |
 | Título del sitio (pestaña) | Catálogo 18 · Vinóloga |
-| URL Netlify (producción) | `https://catalogofinde.netlify.app` _(sin cambiar: mismo sitio)_ |
+| URL pública | `https://catalogo18.netlify.app` |
 | Remoto GitHub | `PaulaG73/catalogo_finde` _(nombre histórico del repo)_ |
+
+## Activar la URL `catalogo18.netlify.app` en Netlify
+
+El código ya apunta a esa URL. En Netlify hay que **cambiar el subdomain** del sitio (o crear uno nuevo):
+
+1. Entra a [app.netlify.com](https://app.netlify.com) → sitio actual (`catalogofinde`).
+2. **Site configuration** → **Domain management**.
+3. En el dominio `*.netlify.app` → **Options** → **Edit site name**.
+4. Pon el nombre **`catalogo18`** (queda `https://catalogo18.netlify.app`).
+5. Guarda y vuelve a desplegar (`npm run build` + deploy, o push si tienes CI).
+
+Opcional: deja `catalogofinde.netlify.app` como dominio secundario con redirect 301 a `catalogo18`, para no romper enlaces viejos.
 
 ## Cómo volver atrás cuando terminen las fiestas
 
-### Opción A — Volver a la rama base (rápido)
+### URL
 
-Si `main` quedó como edición “finde” sin lo dieciochero:
+En Netlify, vuelve a editar el site name a `catalogofinde` (o el que uses para el catálogo finde) y restaura `VUE_APP_PUBLIC_SITE_URL` / fallbacks a esa URL.
 
-```bash
-git checkout main
-```
+### Código / rama
 
-Si la carpeta local se llama `catalogo_18`, puedes renombrarla de nuevo a `catalogo_finde` y reabrir el proyecto en Cursor.
+**Opción A** — `git checkout main` si ahí quedó la edición finde.
 
-### Opción B — Quitar solo lo dieciochero y renombrar el paquete
+**Opción B** — Quitar UI dieciochera, renombrar paquete a `catalogo_finde` y título a `Catálogo Fin de Semana · Vinóloga`.
 
-1. En `package.json` / `package-lock.json`: `"name": "catalogo_finde"`.
-2. En `vue.config.js`: título `Catálogo Fin de Semana · Vinóloga`.
-3. Quitar o desactivar UI 18 (según quieras conservar packs/precios):
-   - Nav **Promos dieciocheras** y filtro `soloOfertas`
-   - Sellos bandera / precios oferta dieciochera en JSON
-   - Paya, sombrero huasa, franja Chile bajo títulos
-4. Commit en `main` (o nueva rama `catalogo-finde`).
-
-### Opción C — Guardar esta edición para el próximo 18
+**Opción C** — Guardar esta edición:
 
 ```bash
 git tag edicion-18-2026
 git push origin catalogo-18
 git push origin edicion-18-2026
 ```
-
-Así puedes recuperar este look el próximo septiembre.
-
-## Qué NO hace falta cambiar para “renombrar el proyecto”
-
-- La URL pública de Netlify (salvo que crees un sitio nuevo `catalogo18.netlify.app`).
-- El nombre del repositorio en GitHub (opcional y aparte).
