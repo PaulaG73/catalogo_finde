@@ -3,7 +3,6 @@
     "id": "1",
     "title": "N°1 Blancos/Alchemysta Wines",
     "valle": "Valle de Casablanca",
-    "agotado": true,
     "image": "/img/Blancos.jpg",
     "price": "$15.000",
     "bloques": [
@@ -78,7 +77,7 @@
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Parróne Cabernet Sauvignon, Alchemysta Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Pillo de Panamá Cabernet Sauvignon/Syrah/Petit Verdot, OWM Wines" },
-      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Carménère, Viña Algorta" }
+      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Cabernet Sauvignon, Viña Algorta" }
     ]
   },
   {
@@ -191,6 +190,7 @@
     "id": "16",
     "title": "N°16 Caja Algorta Grand Reserve",
     "valle": "Valle de Rapel",
+    "agotado": true,
     "image": "/img/GR_Algorta.jpg",
     "price": "$40.000",
     "ofertaEtiqueta": "Oferta dieciochera",
@@ -213,7 +213,7 @@
     "bloques": [
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Parróne Reserva Cabernet Sauvignon, Alchemysta Wines" },
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Pillo de Panamá Cabernet Sauvignon/Syrah/Petit Verdot, OWM Wines" },
-      { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Grand Reserve, Carménère, Viña Algorta" }
+      { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Grand Reserve, Cabernet Sauvignon, Viña Algorta" }
     ]
   },
   {
@@ -223,8 +223,8 @@
     "image": "/img/coleccion-algorta.jpg",
     "price": "$55.000",
     "bloques": [
-      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Carménère" },
-      { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Grand Reserve, Cabernet Sauvignon" },
+
+      { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Grand Reserve, Cabernet Sauvignon" },
       { "tipoCopa": "tinto", "cantidadBotellas": 2, "nombreVino": "Family Reserve, Cabernet Sauvignon" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Series, Wild Carménère" },
       { "tipoCopa": "tinto", "cantidadBotellas": 1, "nombreVino": "Winemaker Series, The Blend" }
