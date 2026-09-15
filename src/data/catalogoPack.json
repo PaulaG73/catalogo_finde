@@ -427,11 +427,9 @@
     "id": "19",
     "title": "N°19 Caja Colección Algorta",
     "valle": "Valle de Rapel",
+    "agotado": true,
     "image": "/img/coleccion-algorta.jpg",
     "price": "$55.000",
-    "ofertaEtiqueta": "Oferta dieciochera",
-    "priceOferta": "$50.000",
-    "ofertaEstilo": "bandera",
     "bloques": [
       {
         "tipoCopa": "tinto",
